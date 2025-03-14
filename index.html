@@ -11,8 +11,8 @@
     <style>
         :root {
             --primary-color: #000000; /* Black */
-            --secondary-color: #BB0000; /* Red */
-            --accent-color: #006600; /* Green */
+            --secondary-color: #0062ff; /* Red */
+            --accent-color: #191a39; /* Green */
             --light-color: #FFFFFF; /* White */
             --dark-color: #000000; /* Black */
             --success-color: #006600; /* Green */
@@ -41,16 +41,13 @@
 
         /* Header Styles */
         header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: #0062ff;
             color: var(--light-color);
             padding: 1rem 0;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
             z-index: 100;
-        }
-
-        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -98,6 +95,9 @@
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
         }
 
         .login-btn:hover {
@@ -109,7 +109,7 @@
         /* Hero Section */
         .hero {
             background: url('bc.png') no-repeat center center/cover;
-            height: 60vh;
+            height: 100vh; /* Full screen height */
             position: relative;
             display: flex;
             align-items: center;
@@ -607,14 +607,8 @@
             <div class="header-content">
                 <div class="logo">
                     <img src="cdf.jpeg" alt="Matungulu CDF Logo">
-                    <div class="logo-text">Matungulu CDF</div>
+                    <div class="logo-text">Matungulu NG CDF</div>
                 </div>
-                <nav class="nav-links">
-                    <a href="#" class="nav-link">Home</a>
-                    <a href="#" class="nav-link">About</a>
-                    <a href="#" class="nav-link">Services</a>
-                    <a href="#" class="nav-link">Contact</a>
-                </nav>
                 <button class="login-btn" id="studentLoginBtn">Student Login</button>
             </div>
         </div>

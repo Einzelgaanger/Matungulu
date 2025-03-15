@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hon. Tom Ndaka - Manifesto 2027</title>
+    <title>Hon. Tom Ndaka - Bursary Management System</title>
     <link rel="icon" type="image/jpeg" href="cdf.jpeg" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
@@ -16,85 +16,108 @@
     <link rel="stylesheet" href="home.css" />
   </head>
   <body>
-  
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <div class="navbar">
+          <div class="logo">
+            <img src="cdf.jpeg" alt="Logo" class="logo-img" />
+            <span class="logo-text">Matungulu NG CDF</span>
+          </div>
+          <nav class="nav-links" id="nav-links">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#features" class="nav-link">Features</a>
+            <a href="#how-it-works" class="nav-link">How It Works</a>
+            <a href="#contact" class="nav-link">Contact</a>
+          </nav>
+          <button class="mobile-toggle" id="mobile-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
       <div class="container">
         <div class="hero-content">
           <div class="hero-text">
-            <h1 class="hero-title">Hon. Tom Ndaka for Matungulu MP 2027</h1>
+            <h1 class="hero-title">Hon. Tom Ndaka's Bursary Management System</h1>
             <p class="hero-subtitle">
-              A leader committed to education, transparency, and community
-              development. Together, let's build a brighter future for Matungulu.
+              A transparent and efficient platform to manage CDF bursaries for the students of Matungulu. 
+              Ensuring every deserving student gets the support they need to achieve their dreams.
             </p>
-            <a href="#vision" class="btn btn-primary">Learn More</a>
+            <div class="bursary-buttons">
+              <button class="btn btn-primary" onclick="showMessage()">Tertiary Bursary Applications</button>
+              <button class="btn btn-primary" onclick="showMessage()">Secondary Bursary Applications</button>
+            </div>
+            
           </div>
-          
         </div>
       </div>
     </section>
 
-    <!-- Vision Section -->
-    <section class="vision section" id="vision">
+    <!-- Features Section -->
+    <section class="vision section" id="features">
       <div class="container">
-        <h2 class="section-title">Our Vision for Matungulu</h2>
+        <h2 class="section-title">Key Features of the Bursary System</h2>
         <div class="vision-grid">
           <div class="vision-card">
             <div class="vision-icon">
-              <i class="fas fa-graduation-cap"></i>
+              <i class="fas fa-laptop"></i>
             </div>
-            <h3 class="vision-title">Education for All</h3>
+            <h3 class="vision-title">Online Application Portal</h3>
             <p class="vision-description">
-              Ensure every child in Matungulu has access to quality education
-              through a transparent and efficient bursary system.
+              Students and parents can easily apply for bursaries online, eliminating the need for 
+              tedious paperwork and long queues.
             </p>
           </div>
           <div class="vision-card">
             <div class="vision-icon">
-              <i class="fas fa-hand-holding-heart"></i>
+              <i class="fas fa-check-circle"></i>
             </div>
-            <h3 class="vision-title">Community Empowerment</h3>
+            <h3 class="vision-title">Transparent Approval Process</h3>
             <p class="vision-description">
-              Empower the community through youth and women development programs,
-              job creation, and infrastructure improvement.
+              Applications are reviewed fairly and transparently, with real-time updates on the status 
+              of each application.
             </p>
           </div>
           <div class="vision-card">
             <div class="vision-icon">
-              <i class="fas fa-balance-scale"></i>
+              <i class="fas fa-chart-line"></i>
             </div>
-            <h3 class="vision-title">Transparent Leadership</h3>
+            <h3 class="vision-title">Efficient Fund Disbursement</h3>
             <p class="vision-description">
-              Promote accountability and transparency in all government processes
-              and resource allocation.
+              Funds are disbursed directly to schools or students' accounts, ensuring timely and 
+              accurate delivery of support.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Bursary Plan Section -->
-    <section class="bursary section" id="bursary">
+    <!-- How It Works Section -->
+    <section class="bursary section" id="how-it-works">
       <div class="container">
-        <h2 class="section-title">Hon Tom Ndaka</h2>
+        <h2 class="section-title">How the Bursary System Works</h2>
         <div class="bursary-content">
           <div class="bursary-image">
-            <img src="h.jpg" alt="Bursary Plan" />
+            <img src="h.jpg" alt="Bursary System" />
           </div>
           <div class="bursary-text">
-            <h3>Seamless Bursary System</h3>
+            <h3>Streamlined Process for Students and Parents</h3>
             <p>
-              Hon. Tom Ndaka will introduce a streamlined bursary application
-              process to ensure no student is left behind. Key features include:
+              Hon. Tom Ndaka's Bursary Management System is designed to make the application process 
+              simple, transparent, and efficient. Here's how it works:
             </p>
             <ul>
-              <li>Online application portal for convenience.</li>
-              <li>Real-time tracking of application status.</li>
-              <li>Fair and need-based allocation of funds.</li>
-              <li>Transparent disbursement process.</li>
+              <li><strong>Step 1:</strong> Create an account on the portal.</li>
+              <li><strong>Step 2:</strong> Fill out the bursary application form online.</li>
+              <li><strong>Step 3:</strong> Upload required documents for verification.</li>
+              <li><strong>Step 4:</strong> Track your application status in real-time.</li>
+              <li><strong>Step 5:</strong> Receive notifications upon approval and disbursement.</li>
             </ul>
-            <a href="#contact" class="btn btn-primary">Support Our Vision</a>
+            <a href="#contact" class="btn btn-primary">Get Started</a>
           </div>
         </div>
       </div>
@@ -103,29 +126,38 @@
     <!-- Contact Section -->
     <section class="contact section" id="contact">
       <div class="container">
-        <h2 class="section-title">Join the Movement</h2>
+        <h2 class="section-title">Need Help? Contact Us</h2>
         <p class="section-subtitle">
-          Support Hon. Tom Ndaka's vision for Matungulu. Get in touch with us
-          today!
+          If you have any questions or need assistance with the bursary application process, 
+          our team is here to help. Reach out to us today!
         </p>
         <div class="contact-grid">
           <div class="contact-info">
             <div class="contact-item">
               <i class="fas fa-map-marker-alt"></i>
-              <p>Matungulu, Kenya</p>
+              <p>Matungulu Constituency, Kenya</p>
             </div>
             <div class="contact-item">
-              <i class="fas fa-phone"></i>
-              <p>+254 700 000 000</p>
+              <a href="tel:+254720426513">
+                <i class="fas fa-phone"></i>
+                <p>Call Me</p>
+              </a>
             </div>
             <div class="contact-item">
-              <i class="fas fa-envelope"></i>
-              <p>info@tomndaka.com</p>
+              <a href="mailto:hontomndaka@gmail.com">
+                <i class="fas fa-envelope"></i>
+                <p>Email Me</p>
+              </a>
+            </div>
+            <div class="contact-item">
+              <a href="https://wa.me/254720426513" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                <p>Chat on WhatsApp</p>
+              </a>
             </div>
           </div>
           <form class="contact-form">
             <input type="text" placeholder="Your Name" required />
-            <input type="email" placeholder="Your Email" required />
             <textarea placeholder="Your Message" required></textarea>
             <button type="submit" class="btn btn-primary">Send Message</button>
           </form>
@@ -138,27 +170,28 @@
       <div class="container">
         <div class="footer-grid">
           <div class="footer-about">
-            <h3>Hon. Tom Ndaka</h3>
+            <h3>About the Bursary System</h3>
             <p>
-              A leader committed to transforming Matungulu through education,
-              transparency, and community development.
+              Hon. Tom Ndaka's Bursary Management System is a transparent and efficient platform 
+              designed to ensure that every deserving student in Matungulu has access to education 
+              through CDF-funded bursaries.
             </p>
           </div>
           <div class="footer-links">
             <h3>Quick Links</h3>
             <ul>
               <li><a href="#home">Home</a></li>
-              <li><a href="#vision">Vision</a></li>
-              <li><a href="#bursary">Bursary Plan</a></li>
+              <li><a href="#features">Features</a></li>
+              <li><a href="#how-it-works">How It Works</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
           </div>
           <div class="footer-social">
             <h3>Follow Us</h3>
             <div class="social-links">
-              <a href="#"><i class="fab fa-facebook"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="https://facebook.com/tomndaka" target="_blank"><i class="fab fa-facebook"></i></a>
+              <a href="https://x.com/tomndaka" target="_blank"><i class="fab fa-twitter"></i></a>
+              <a href="https://instagram.com/tomndaka" target="_blank"><i class="fab fa-instagram"></i></a>
             </div>
           </div>
         </div>
@@ -169,6 +202,18 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="script.js"></script>
+    <script>
+      function showMessage() {
+        alert("The bursary application system will be implemented after Hon. Tom Ndaka becomes MP in 2027.");
+      }
+
+      // Mobile Toggle Script
+      const mobileToggle = document.getElementById("mobile-toggle");
+      const navLinks = document.getElementById("nav-links");
+
+      mobileToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+    </script>
   </body>
 </html>

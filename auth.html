@@ -9,6 +9,11 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <!-- FontAwesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="auth.css" />
   </head>
   <body>
@@ -40,10 +45,16 @@
             <h2>Login</h2>
             <form id="login">
               <div class="form-group">
-                <input type="email" id="login-email" placeholder="Email" required />
+                <div class="input-with-icon">
+                  <i class="fas fa-envelope"></i>
+                  <input type="email" id="login-email" placeholder="Email" required />
+                </div>
               </div>
               <div class="form-group">
-                <input type="password" id="login-password" placeholder="Password" required />
+                <div class="input-with-icon">
+                  <i class="fas fa-lock"></i>
+                  <input type="password" id="login-password" placeholder="Password" required />
+                </div>
               </div>
               <div class="form-group">
                 <button type="submit">Login</button>
@@ -55,6 +66,7 @@
               <a id="show-forgot-password">Forgot Password?</a>
             </div>
             <div id="login-error" class="error-message"></div>
+            <div id="login-success" class="success-message"></div>
           </div>
 
           <!-- Signup Form -->
@@ -62,10 +74,16 @@
             <h2>Sign Up</h2>
             <form id="signup">
               <div class="form-group">
-                <input type="email" id="signup-email" placeholder="Email" required />
+                <div class="input-with-icon">
+                  <i class="fas fa-envelope"></i>
+                  <input type="email" id="signup-email" placeholder="Email" required />
+                </div>
               </div>
               <div class="form-group">
-                <input type="password" id="signup-password" placeholder="Password" required />
+                <div class="input-with-icon">
+                  <i class="fas fa-lock"></i>
+                  <input type="password" id="signup-password" placeholder="Password" required />
+                </div>
               </div>
               <div class="form-group">
                 <button type="submit">Sign Up</button>
@@ -75,6 +93,7 @@
               <a id="show-login">Already have an account? Login</a>
             </div>
             <div id="signup-error" class="error-message"></div>
+            <div id="signup-success" class="success-message"></div>
           </div>
 
           <!-- Forgot Password Form -->
@@ -82,7 +101,10 @@
             <h2>Forgot Password</h2>
             <form id="forgot-password">
               <div class="form-group">
-                <input type="email" id="forgot-password-email" placeholder="Email" required />
+                <div class="input-with-icon">
+                  <i class="fas fa-envelope"></i>
+                  <input type="email" id="forgot-password-email" placeholder="Email" required />
+                </div>
               </div>
               <div class="form-group">
                 <button type="submit">Reset Password</button>
@@ -92,6 +114,7 @@
               <a id="show-login-from-forgot">Back to Login</a>
             </div>
             <div id="forgot-password-error" class="error-message"></div>
+            <div id="forgot-password-success" class="success-message"></div>
           </div>
         </div>
       </div>
@@ -137,6 +160,10 @@
       const signupError = document.getElementById('signup-error');
       const forgotPasswordError = document.getElementById('forgot-password-error');
 
+      const loginSuccess = document.getElementById('login-success');
+      const signupSuccess = document.getElementById('signup-success');
+      const forgotPasswordSuccess = document.getElementById('forgot-password-success');
+
       const showSignup = document.getElementById('show-signup');
       const showLogin = document.getElementById('show-login');
       const showForgotPassword = document.getElementById('show-forgot-password');
@@ -179,10 +206,15 @@
 
         signInWithEmailAndPassword(auth, email, password)
           .then(() => {
-            window.location.href = 'home.html'; // Redirect to home.html
+            loginSuccess.textContent = 'Login successful! Redirecting...';
+            loginError.textContent = '';
+            setTimeout(() => {
+              window.location.href = 'home.html'; // Redirect to home.html
+            }, 2000);
           })
           .catch((error) => {
             loginError.textContent = error.message;
+            loginSuccess.textContent = '';
           });
       });
 
@@ -194,10 +226,15 @@
 
         createUserWithEmailAndPassword(auth, email, password)
           .then(() => {
-            window.location.href = 'home.html'; // Redirect to home.html
+            signupSuccess.textContent = 'Signup successful! Redirecting...';
+            signupError.textContent = '';
+            setTimeout(() => {
+              window.location.href = 'home.html'; // Redirect to home.html
+            }, 2000);
           })
           .catch((error) => {
             signupError.textContent = error.message;
+            signupSuccess.textContent = '';
           });
       });
 
@@ -208,10 +245,12 @@
 
         sendPasswordResetEmail(auth, email)
           .then(() => {
-            forgotPasswordError.textContent = 'Password reset email sent!';
+            forgotPasswordSuccess.textContent = 'Password reset email sent!';
+            forgotPasswordError.textContent = '';
           })
           .catch((error) => {
             forgotPasswordError.textContent = error.message;
+            forgotPasswordSuccess.textContent = '';
           });
       });
 

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Authentication</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="auth.css">
+    
+  </head>
+  <body>
+    <div class="auth-container">
+      <!-- Login Form -->
+      <div id="login-form">
+        <h2>Login</h2>
+        <form id="login">
+          <input type="email" id="login-email" placeholder="Email" required />
+          <input type="password" id="login-password" placeholder="Password" required />
+          <button type="submit">Login</button>
+        </form>
+        <div class="switch-form">
+          <a id="show-signup">Don't have an account? Sign Up</a>
+          <br />
+          <a id="show-forgot-password">Forgot Password?</a>
+        </div>
+        <div id="login-error" class="error-message"></div>
+      </div>
+
+      <!-- Signup Form -->
+      <div id="signup-form" style="display: none">
+        <h2>Sign Up</h2>
+        <form id="signup">
+          <input type="email" id="signup-email" placeholder="Email" required />
+          <input type="password" id="signup-password" placeholder="Password" required />
+          <button type="submit">Sign Up</button>
+        </form>
+        <div class="switch-form">
+          <a id="show-login">Already have an account? Login</a>
+        </div>
+        <div id="signup-error" class="error-message"></div>
+      </div>
+
+      <!-- Forgot Password Form -->
+      <div id="forgot-password-form" style="display: none">
+        <h2>Forgot Password</h2>
+        <form id="forgot-password">
+          <input type="email" id="forgot-password-email" placeholder="Email" required />
+          <button type="submit">Reset Password</button>
+        </form>
+        <div class="switch-form">
+          <a id="show-login-from-forgot">Back to Login</a>
+        </div>
+        <div id="forgot-password-error" class="error-message"></div>
+      </div>
+    </div>
+
+    <!-- Firebase and App Script -->
+    <script type="module">
+      // Firebase Configuration
+      import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+      import {
+        getAuth,
+        signInWithEmailAndPassword,
+        createUserWithEmailAndPassword,
+        sendPasswordResetEmail,
+      } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+
+      const firebaseConfig = {
+        apiKey: 'AIzaSyAsyon8iS_cl0rrePbsbpZQZgvbpGGuGdk',
+        authDomain: 'matungulu-78f91.firebaseapp.com',
+        projectId: 'matungulu-78f91',
+        storageBucket: 'matungulu-78f91.firebasestorage.app',
+        messagingSenderId: '482894330301',
+        appId: '1:482894330301:web:d96d60d5c9639af7573ad4',
+        measurementId: 'G-V6ELVWM0NW',
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+
+      // DOM Elements
+      const loginForm = document.getElementById('login');
+      const signupForm = document.getElementById('signup');
+      const forgotPasswordForm = document.getElementById('forgot-password');
+
+      const loginError = document.getElementById('login-error');
+      const signupError = document.getElementById('signup-error');
+      const forgotPasswordError = document.getElementById('forgot-password-error');
+
+      const showSignup = document.getElementById('show-signup');
+      const showLogin = document.getElementById('show-login');
+      const showForgotPassword = document.getElementById('show-forgot-password');
+      const showLoginFromForgot = document.getElementById('show-login-from-forgot');
+
+      const loginFormDiv = document.getElementById('login-form');
+      const signupFormDiv = document.getElementById('signup-form');
+      const forgotPasswordFormDiv = document.getElementById('forgot-password-form');
+
+      // Switch Between Forms
+      showSignup.addEventListener('click', () => {
+        loginFormDiv.style.display = 'none';
+        signupFormDiv.style.display = 'block';
+        forgotPasswordFormDiv.style.display = 'none';
+      });
+
+      showLogin.addEventListener('click', () => {
+        loginFormDiv.style.display = 'block';
+        signupFormDiv.style.display = 'none';
+        forgotPasswordFormDiv.style.display = 'none';
+      });
+
+      showForgotPassword.addEventListener('click', () => {
+        loginFormDiv.style.display = 'none';
+        signupFormDiv.style.display = 'none';
+        forgotPasswordFormDiv.style.display = 'block';
+      });
+
+      showLoginFromForgot.addEventListener('click', () => {
+        loginFormDiv.style.display = 'block';
+        signupFormDiv.style.display = 'none';
+        forgotPasswordFormDiv.style.display = 'none';
+      });
+
+      // Login
+      loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('login-email').value;
+        const password = document.getElementById('login-password').value;
+
+        signInWithEmailAndPassword(auth, email, password)
+          .then(() => {
+            window.location.href = 'home.html'; // Redirect to home.html
+          })
+          .catch((error) => {
+            loginError.textContent = error.message;
+          });
+      });
+
+      // Signup
+      signupForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('signup-email').value;
+        const password = document.getElementById('signup-password').value;
+
+        createUserWithEmailAndPassword(auth, email, password)
+          .then(() => {
+            window.location.href = 'home.html'; // Redirect to home.html
+          })
+          .catch((error) => {
+            signupError.textContent = error.message;
+          });
+      });
+
+      // Forgot Password
+      forgotPasswordForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('forgot-password-email').value;
+
+        sendPasswordResetEmail(auth, email)
+          .then(() => {
+            forgotPasswordError.textContent = 'Password reset email sent!';
+          })
+          .catch((error) => {
+            forgotPasswordError.textContent = error.message;
+          });
+      });
+    </script>
+  </body>
+</html>

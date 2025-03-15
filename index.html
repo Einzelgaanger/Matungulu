@@ -3,119 +3,272 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matungulu NG CDF Bursary Management System</title>
+    <title>Hon. Thomas Ndaka - MP Matungulu 2027</title>
     <link rel="icon" type="image/jpeg" href="cdf.jpeg">
-    <!-- Font Awesome for Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+    
+        /* Kenyan Flag themed CSS */
         :root {
-            --primary-color: #000000; /* Black */
-            --secondary-color: #0062ff; /* Red */
-            --accent-color: #191a39; /* Green */
-            --light-color: #FFFFFF; /* White */
-            --dark-color: #000000; /* Black */
-            --success-color: #006600; /* Green */
-            --warning-color: #FFD700; /* Gold for contrast */
+            --primary: #008000; /* Kenyan green */
+            --primary-dark: #006400; /* Darker green */
+            --secondary: #000000; /* Black from Kenyan flag */
+            --accent: #bc0000; /* Kenyan red */
+            --success: #008000; /* Green */
+            --warning: #ffc107; /* Original warning color */
+            --danger: #bc0000; /* Red from Kenyan flag */
+            --dark: #1a1a1a;
+            --light: #ffffff; /* White from Kenyan flag */
+            --gray-100: #f8f9fa;
+            --gray-200: #e9ecef;
+            --gray-300: #dee2e6;
+            --gray-400: #ced4da;
+            --gray-500: #adb5bd;
+            --gray-600: #6c757d;
+            --gray-700: #495057;
+            --gray-800: #343a40;
+            --gray-900: #212529;
+            
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow: 0 4px 6px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+            
+            --transition: all 0.3s ease;
+            --border-radius-sm: 4px;
+            --border-radius: 8px;
+            --border-radius-md: 12px;
+            --border-radius-lg: 16px;
+            --border-radius-xl: 24px;
+            --border-radius-full: 9999px;
         }
 
+        /* Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
         }
 
         body {
-            background-color: var(--light-color);
-            color: var(--dark-color);
+            font-family: 'Inter', sans-serif;
+            color: var(--gray-800);
             line-height: 1.6;
+            background-color: var(--gray-100);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
         }
 
         .container {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 1.5rem;
         }
 
-        /* Header Styles */
-        header {
-            background: #0062ff;
-            color: var(--light-color);
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            display: flex;
-            justify-content: space-between;
+        .section {
+            padding: 5rem 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
             align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            border: none;
+            outline: none;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--light);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+            color: var(--light);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: var(--light);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+            color: var(--light);
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+            color: var(--light);
+        }
+
+        .btn-accent:hover {
+            background-color: #a30000;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-lg {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+        }
+
+        .btn-sm {
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--light);
+            color: var(--light);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--light);
+            color: var(--primary);
+        }
+
+        /* Header */
+        .header {
+            background-color: var(--light);
+            box-shadow: var(--shadow);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header.scrolled {
+            padding: 0.75rem 0;
+            background-color: rgba(255, 255, 255, 0.98);
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
         }
 
         .logo {
             display: flex;
             align-items: center;
+            gap: 0.75rem;
         }
 
-        .logo img {
-            height: 60px;
-            margin-right: 15px;
+        .logo-img {
+            height: 50px;
+            width: auto;
+            border-radius: var(--border-radius-sm);
         }
 
         .logo-text {
-            font-size: 1.5rem;
-            font-weight: bold;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--secondary);
         }
 
         .nav-links {
             display: flex;
-            gap: 20px;
+            gap: 2rem;
+            align-items: center;
         }
 
         .nav-link {
-            color: var(--light-color);
-            text-decoration: none;
+            color: var(--gray-700);
             font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 8px 15px;
-            border-radius: 5px;
+            position: relative;
+            padding: 0.5rem 0;
         }
 
         .nav-link:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--primary);
         }
 
-        .login-btn {
-            background-color: var(--accent-color);
-            color: var(--light-color);
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
+        .nav-link::after {
+            content: '';
             position: absolute;
-            top: 1rem;
-            right: 1rem;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary);
+            transition: var(--transition);
         }
 
-        .login-btn:hover {
-            background-color: #004400; /* Darker green */
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            color: var(--primary);
+        }
+
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .mobile-toggle {
+            display: none;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--secondary);
         }
 
         /* Hero Section */
         .hero {
-            background: url('bc.png') no-repeat center center/cover;
-            height: 100vh; /* Full screen height */
             position: relative;
+            height: 100vh;
+            min-height: 600px;
             display: flex;
             align-items: center;
-            justify-content: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('bc.png') no-repeat center center/cover;
+            margin-top: 0;
+            overflow: hidden;
             text-align: center;
-            color: var(--light-color);
         }
 
         .hero::before {
@@ -123,61 +276,62 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 128, 0, 0.5), rgba(188, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+            z-index: 1;
         }
 
         .hero-content {
-            position: relative;
-            z-index: 1;
             max-width: 800px;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: var(--light-color);
-            padding: 12px 30px;
-            border-radius: 5px;
-            font-weight: bold;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            margin-top: 20px;
-        }
-
-        .cta-button:hover {
-            background-color: #990000; /* Darker red */
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Main Content */
-        .main-content {
-            padding: 4rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 2rem;
-            font-size: 2.5rem;
-            color: var(--primary-color);
+            margin: 0 auto;
+            padding: 0 1.5rem;
             position: relative;
-            padding-bottom: 15px;
+            z-index: 2;
+            color: var(--light);
         }
 
-        .section-title::after {
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        /* Applications Section */
+        .applications {
+            background-color: var(--light);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+            padding: 3rem;
+            margin-top: -5rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .applications-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .applications-title::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -185,165 +339,449 @@
             transform: translateX(-50%);
             width: 80px;
             height: 4px;
-            background-color: var(--secondary-color);
+            background: linear-gradient(to right, var(--secondary), var(--accent), var(--primary));
+            border-radius: var(--border-radius-full);
         }
 
-        .bursary-section {
-            margin-bottom: 4rem;
+        .application-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
 
-        .bursary-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 2rem;
-        }
-
-        .bursary-button {
-            background-color: var(--secondary-color);
-            border: none;
-            color: var(--light-color);
-            padding: 15px 30px;
-            font-size: 1.2rem;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            min-width: 300px;
+        .application-card {
+            background-color: var(--gray-100);
+            border-radius: var(--border-radius-md);
+            padding: 2rem;
             text-align: center;
+            transition: var(--transition);
+            border-top: 4px solid var(--primary);
+            box-shadow: var(--shadow-sm);
         }
 
-        .bursary-button:hover {
-            background-color: #990000; /* Darker red */
+        .application-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: var(--shadow-md);
+        }
+
+        .application-card:nth-child(1) {
+            border-top-color: var(--primary);
+        }
+
+        .application-card:nth-child(2) {
+            border-top-color: var(--accent);
+        }
+
+        .application-card:nth-child(3) {
+            border-top-color: var(--secondary);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .application-card:nth-child(2) .card-icon {
+            color: var(--accent);
+        }
+
+        .application-card:nth-child(3) .card-icon {
+            color: var(--secondary);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-text {
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
         }
 
         .status-badge {
             display: inline-block;
-            background-color: var(--warning-color);
-            color: var(--light-color);
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 0.8rem;
-            margin-top: 10px;
-            transform: scale(0);
-            transition: transform 0.3s ease;
-        }
-
-        .show-status {
-            transform: scale(1);
+            padding: 0.35rem 0.75rem;
+            border-radius: var(--border-radius-full);
+            background-color: var(--warning);
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-top: 1rem;
         }
 
         /* Features Section */
         .features {
+            background-color: var(--gray-100);
+        }
+
+        .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 3rem;
+            gap: 2rem;
         }
 
         .feature-card {
-            background-color: var(--light-color);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            background-color: var(--light);
+            border-radius: var(--border-radius-md);
+            padding: 2.5rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            height: 100%;
         }
 
         .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
         }
 
         .feature-icon {
-            font-size: 2.5rem;
-            color: var(--secondary-color);
-            margin-bottom: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            background-color: rgba(0, 128, 0, 0.1);
+            color: var(--primary);
+            border-radius: var(--border-radius-full);
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Alternating feature icon colors */
+        .feature-card:nth-child(3n+2) .feature-icon {
+            background-color: rgba(188, 0, 0, 0.1);
+            color: var(--accent);
+        }
+
+        .feature-card:nth-child(3n+3) .feature-icon {
+            background-color: rgba(0, 0, 0, 0.1);
+            color: var(--secondary);
         }
 
         .feature-title {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--primary-color);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-description {
+            color: var(--gray-600);
+            font-size: 1rem;
         }
 
         /* Vision Section */
         .vision {
-            background-color: var(--primary-color);
-            color: var(--light-color);
-            padding: 4rem 0;
+            background-color: var(--secondary);
+            color: var(--light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vision::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(135deg, rgba(0, 128, 0, 0.3) 0%, rgba(0, 0, 0, 0.9) 100%);
+            z-index: 1;
+        }
+
+        /* Vision Section (continued) */
+        .vision-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
             text-align: center;
         }
 
-        .vision-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .vision h2 {
+        .vision-title {
             font-size: 2.5rem;
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
         }
 
-        .vision p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--dark-color);
-            color: var(--light-color);
-            padding: 3rem 0 1rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
+        .vision-text {
+            font-size: 1.1rem;
+            opacity: 0.9;
             margin-bottom: 2rem;
         }
 
-        .footer-column h3 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
+        /* Stats Section */
+        .stats {
+            background-color: var(--light);
         }
 
-        .footer-column h3::after {
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Alternating stat colors to match Kenyan flag */
+        .stat-item:nth-child(3n+2) .stat-number {
+            color: var(--accent);
+        }
+
+        .stat-item:nth-child(3n+3) .stat-number {
+            color: var(--secondary);
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--gray-700);
+            font-weight: 500;
+        }
+
+        /* Process Section */
+        .process {
+            background-color: var(--gray-100);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: var(--light);
+            border-radius: var(--border-radius-md);
+            padding: 2.5rem;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .process-step:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .step-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            color: var(--light);
+            border-radius: var(--border-radius-full);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Alternating process step colors */
+        .process-step:nth-child(3n+2) .step-number {
+            background-color: var(--accent);
+        }
+
+        .process-step:nth-child(3n+3) .step-number {
+            background-color: var(--secondary);
+        }
+
+        .step-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .step-description {
+            color: var(--gray-600);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: var(--light);
+        }
+
+        .testimonial-slider {
+            position: relative;
+            overflow: hidden;
+            margin-top: 3rem;
+        }
+
+        .testimonial-slide {
+            background-color: var(--gray-100);
+            border-radius: var(--border-radius-md);
+            padding: 2rem;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--primary);
+        }
+
+        .testimonial-quote {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--gray-700);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .author-name {
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 0.25rem;
+        }
+
+        .author-role {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+        }
+
+        /* FAQ Section */
+        .faq {
+            background-color: var(--gray-100);
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+            border-radius: var(--border-radius-md);
+            background-color: var(--light);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background-color: rgba(0, 128, 0, 0.05);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-answer-content {
+            padding-bottom: 1.5rem;
+            color: var(--gray-600);
+        }
+
+        .faq-item.active .faq-question {
+            background-color: rgba(0, 128, 0, 0.05);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--light);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
             content: '';
             position: absolute;
-            bottom: 0;
+            top: 0;
             left: 0;
-            width: 50px;
-            height: 2px;
-            background-color: var(--secondary-color);
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, var(--secondary) 33%, var(--accent) 33%, var(--accent) 67%, var(--primary) 67%);
         }
 
-        .footer-column ul {
-            list-style: none;
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
         }
 
-        .footer-column ul li {
-            margin-bottom: 10px;
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
         }
 
-        .footer-column ul li a {
-            color: #bdc3c7;
-            text-decoration: none;
-            transition: all 0.3s ease;
+        .cta-text {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
         }
 
-        .footer-column ul li a:hover {
-            color: var(--secondary-color);
+        /* Footer */
+        .footer {
+            background-color: var(--secondary);
+            color: var(--gray-400);
+            padding: 5rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo-img {
+            height: 40px;
+            border-radius: var(--border-radius-sm);
+        }
+
+        .footer-logo-text {
+            color: var(--light);
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .footer-description {
+            margin-bottom: 1.5rem;
         }
 
         .social-links {
             display: flex;
-            gap: 15px;
-            margin-top: 20px;
+            gap: 1rem;
         }
 
         .social-link {
@@ -353,472 +791,459 @@
             width: 40px;
             height: 40px;
             background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: var(--light-color);
-            transition: all 0.3s ease;
+            color: var(--light);
+            border-radius: var(--border-radius-full);
+            transition: var(--transition);
         }
 
         .social-link:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-5px);
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Alternating social link hover colors */
+        .social-link:nth-child(3n+2):hover {
+            background-color: var(--accent);
+        }
+
+        .social-link:nth-child(3n+3):hover {
+            background-color: var(--secondary);
+            border: 1px solid var(--light);
+        }
+
+        .footer-title {
+            color: var(--light);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-link-item {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-link {
+            color: var(--gray-400);
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-link:hover {
+            color: var(--light);
+            padding-left: 5px;
+        }
+
+        .contact-list {
+            list-style: none;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-icon {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-top: 0.25rem;
+        }
+
+        /* Alternating contact icon colors */
+        .contact-item:nth-child(3n+2) .contact-icon {
+            color: var(--accent);
+        }
+
+        .contact-item:nth-child(3n+3) .contact-icon {
+            color: var(--light);
         }
 
         .copyright {
             text-align: center;
-            padding-top: 20px;
+            padding-top: 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #bdc3c7;
-            font-size: 0.9rem;
+            font-size: 0.875rem;
         }
 
-        /* Modal Styles */
         .modal {
-            display: none;
             position: fixed;
-            z-index: 1000;
-            left: 0;
             top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
             align-items: center;
             justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
         }
 
         .modal-content {
-            background-color: var(--light-color);
-            margin: auto;
-            padding: 40px;
-            border-radius: 10px;
+            background-color: var(--light);
+            border-radius: var(--border-radius-lg);
+            padding: 3rem;
             max-width: 500px;
             width: 90%;
+            box-shadow: var(--shadow-lg);
             position: relative;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            animation: modalOpen 0.3s ease;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+            border-top: 4px solid;
+            border-image: linear-gradient(to right, var(--secondary) 33%, var(--accent) 33%, var(--accent) 67%, var(--primary) 67%) 1;
         }
 
-        @keyframes modalOpen {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .modal.active .modal-content {
+            transform: translateY(0);
         }
 
-        .close-btn {
+        .modal-close {
             position: absolute;
-            top: 15px;
-            right: 15px;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
             font-size: 1.5rem;
             cursor: pointer;
-            color: #aaa;
-            transition: all 0.3s ease;
+            color: var(--gray-600);
+            transition: var(--transition);
         }
 
-        .close-btn:hover {
-            color: #333;
+        .modal-close:hover {
+            color: var(--danger);
         }
 
         .modal-icon {
-            font-size: 4rem;
-            color: var(--secondary-color);
-            margin-bottom: 20px;
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            text-align: center;
         }
 
         .modal-title {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
         }
 
         .modal-text {
-            font-size: 1.1rem;
-            margin-bottom: 25px;
-            color: #666;
+            color: var(--gray-600);
+            margin-bottom: 2rem;
+            text-align: center;
         }
 
-        .modal-btn {
-            background-color: var(--secondary-color);
-            color: var(--light-color);
-            border: none;
-            padding: 12px 25px;
-            border-radius: 5px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .modal-btn:hover {
-            background-color: #990000; /* Darker red */
-        }
-
-        /* Responsive Styles */
+        /* Responsive styles */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.2rem;
+            .hero-title {
+                font-size: 2.5rem;
             }
 
             .nav-links {
-                display: none;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-                background: none;
-                border: none;
-                color: var(--light-color);
-                font-size: 1.5rem;
-                cursor: pointer;
-            }
-
-            .header-content {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background-color: var(--light);
                 flex-direction: column;
-                text-align: center;
-            }
-
-            .logo {
-                margin-bottom: 15px;
-            }
-
-            .login-btn {
-                margin-top: 15px;
-            }
-
-            .bursary-button {
-                min-width: 100%;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-
-            .social-links {
-                justify-content: center;
-            }
-        }
-
-        /* Loading Animation */
-        .loading {
-            display: inline-block;
-            position: relative;
-            width: 80px;
-            height: 80px;
-        }
-
-        .loading div {
-            position: absolute;
-            top: 33px;
-            width: 13px;
-            height: 13px;
-            border-radius: 50%;
-            background: var(--secondary-color);
-            animation-timing-function: cubic-bezier(0, 1, 1, 0);
-        }
-
-        .loading div:nth-child(1) {
-            left: 8px;
-            animation: loading1 0.6s infinite;
-        }
-
-        .loading div:nth-child(2) {
-            left: 8px;
-            animation: loading2 0.6s infinite;
-        }
-
-        .loading div:nth-child(3) {
-            left: 32px;
-            animation: loading2 0.6s infinite;
-        }
-
-        .loading div:nth-child(4) {
-            left: 56px;
-            animation: loading3 0.6s infinite;
-        }
-
-        @keyframes loading1 {
-            0% {
-                transform: scale(0);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        @keyframes loading2 {
-            0% {
-                transform: translate(0, 0);
-            }
-            100% {
-                transform: translate(24px, 0);
-            }
-        }
-
-        @keyframes loading3 {
-            0% {
-                transform: scale(1);
-            }
-            100% {
-                transform: scale(0);
-            }
-        }
-
-        /* Animations */
-        .fade-in {
-            animation: fadeIn 1s ease;
-        }
-
-        @keyframes fadeIn {
-            from {
+                padding: 2rem;
+                box-shadow: var(--shadow-md);
+                transform: translateY(-100%);
                 opacity: 0;
-                transform: translateY(20px);
+                visibility: hidden;
+                transition: var(--transition);
             }
-            to {
-                opacity: 1;
+
+            .nav-links.active {
                 transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
             }
-        }
 
-        .pulse {
-            animation: pulse 2s infinite;
-        }
+            .mobile-toggle {
+                display: block;
+            }
 
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
             }
-            50% {
-                transform: scale(1.05);
-            }
-            100% {
-                transform: scale(1);
+
+            .applications {
+                margin-top: -3rem;
+                padding: 2rem;
             }
         }
+   
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header>
+    <header class="header" id="header">
         <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <img src="cdf.jpeg" alt="Matungulu CDF Logo">
-                    <div class="logo-text">Matungulu NG CDF</div>
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <img src="cdf.jpeg" alt="Matungulu CDF Logo" class="logo-img">
+                    <span class="logo-text">Matungulu NG-CDF</span>
+                </a>
+                
+                <button class="mobile-toggle" id="mobileToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <div class="nav-links" id="navLinks">
+                    <a href="#" class="nav-link active">Home</a>
+                    <a href="#applications" class="nav-link">Applications</a>
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#process" class="nav-link">Process</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                    <a href="#" class="btn btn-primary btn-sm" id="loginBtn">Student Login</a>
                 </div>
-                <button class="login-btn" id="studentLoginBtn">Student Login</button>
-            </div>
+            </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1 class="fade-in">MATUNGULU NG CDF BURSARY MANAGEMENT SYSTEM</h1>
-            <p class="fade-in">Empowering education through transparent and efficient bursary allocation</p>
-            <a href="#bursary-applications" class="cta-button pulse">View Bursary Applications</a>
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title animate-fade">MATUNGULU NG-CDF BURSARY MANAGEMENT SYSTEM</h1>
+                <p class="hero-subtitle animate-fade animate-delay-1">Empowering education through transparent and efficient bursary allocation</p>
+                <div class="hero-buttons">
+                    <a href="#applications" class="btn btn-primary btn-lg animate-fade animate-delay-2">Apply for Bursary</a>
+                    <a href="#process" class="btn btn-outline btn-lg animate-fade animate-delay-3">Learn More</a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Main Content -->
-    <main class="main-content">
+    <!-- Applications Section -->
+    <section class="section" id="applications">
         <div class="container">
-            <section class="bursary-section" id="bursary-applications">
-                <h2 class="section-title">Bursary Applications</h2>
-                <div class="bursary-buttons">
-                    <div>
-                        <button class="bursary-button" id="tertiaryBtn">A. TERTIARY BURSARY APPLICATIONS</button>
-                        <span class="status-badge" id="tertiaryStatus">CLOSED</span>
+            <div class="applications">
+                <h2 class="applications-title">Bursary Applications</h2>
+                <div class="application-cards">
+                    <div class="application-card animate-fade">
+                        <div class="card-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="card-title">Tertiary Education</h3>
+                        <p class="card-text">Apply for bursaries for universities, colleges, and technical institutions. Support your higher education journey.</p>
+                        <a href="#" class="btn btn-primary" id="tertiaryBtn">Apply Now</a>
+                        <div class="status-badge" id="tertiaryStatus">CLOSED</div>
                     </div>
-                    <div>
-                        <button class="bursary-button" id="secondaryBtn">B. SECONDARY BURSARY APPLICATIONS</button>
-                        <span class="status-badge" id="secondaryStatus">CLOSED</span>
+                    
+                    <div class="application-card animate-fade animate-delay-1">
+                        <div class="card-icon">
+                            <i class="fas fa-school"></i>
+                        </div>
+                        <h3 class="card-title">Secondary Education</h3>
+                        <p class="card-text">Financial assistance for secondary school students. We're committed to ensuring no student is left behind.</p>
+                        <a href="#" class="btn btn-primary" id="secondaryBtn">Apply Now</a>
+                        <div class="status-badge" id="secondaryStatus">CLOSED</div>
+                    </div>
+                    
+                    <div class="application-card animate-fade animate-delay-2">
+                        <div class="card-icon">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <h3 class="card-title">Track Application</h3>
+                        <p class="card-text">Already applied? Check the status of your bursary application and stay updated on the progress.</p>
+                        <a href="#" class="btn btn-secondary" id="trackBtn">Track Status</a>
                     </div>
                 </div>
-            </section>
-
-            <section>
-                <h2 class="section-title">Key Features</h2>
-                <div class="features">
-                    <div class="feature-card fade-in">
-                        <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
-                        <h3 class="feature-title">Online Application</h3>
-                        <p>Apply for bursaries from the comfort of your home using our online platform. No more long queues!</p>
-                    </div>
-                    <div class="feature-card fade-in">
-                        <div class="feature-icon"><i class="fas fa-clock"></i></div>
-                        <h3 class="feature-title">Real-time Tracking</h3>
-                        <p>Track your application status in real-time and receive updates via SMS and email.</p>
-                    </div>
-                    <div class="feature-card fade-in">
-                        <div class="feature-icon"><i class="fas fa-search"></i></div>
-                        <h3 class="feature-title">Transparent Process</h3>
-                        <p>Our selection process is fair and transparent, with clear criteria for bursary allocation.</p>
-                    </div>
-                </div>
-            </section>
+            </div>
         </div>
-    </main>
+    </section>
 
-    <!-- Vision Section -->
-    <section class="vision">
+    <!-- Features Section -->
+    <section class="section features" id="features">
         <div class="container">
-            <div class="vision-content fade-in">
-                <h2>Hon. Tom Ndaka's Vision for Education</h2>
-                <p>Our commitment is to ensure every deserving student in Matungulu has access to quality education through fair and transparent bursary allocation. We believe education is the key to unlocking the potential of our constituency.</p>
-                <a href="#" class="cta-button">Learn More About Our Vision</a>
+            <h2 class="section-title text-center">Key Features</h2>
+            <p class="text-center" style="max-width: 700px; margin: 0 auto 3rem;">Our bursary management system is designed to make the application process seamless, transparent, and accessible to all students.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card animate-fade">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Online Application</h3>
+                    <p class="feature-description">Apply for bursaries from anywhere using our mobile-friendly platform. No more long queues or paperwork.</p>
+                </div>
+                
+                <div class="feature-card animate-fade animate-delay-1">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="feature-title">Real-time Tracking</h3>
+                    <p class="feature-description">Track your application status in real-time and receive updates via SMS and email notifications.</p>
+                </div>
+                
+                <div class="feature-card animate-fade animate-delay-2">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Transparent Process</h3>
+                    <p class="feature-description">Our selection process is fair and transparent, with clear criteria for bursary allocation to deserving students.</p>
+                </div>
+                
+                <div class="feature-card animate-fade">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="feature-title">Fast Processing</h3>
+                    <p class="feature-description">Efficient review and approval process ensures timely disbursement of funds when you need them most.</p>
+                </div>
+                
+                <div class="feature-card animate-fade animate-delay-1">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="feature-title">Support System</h3>
+                    <p class="feature-description">Dedicated support team ready to assist you with any questions or issues regarding your application.</p>
+                </div>
+                
+                <div class="feature-card animate-fade animate-delay-2">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Digital Records</h3>
+                    <p class="feature-description">All your applications and documents are securely stored digitally for easy future references and renewals.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer" id="contact">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>About Us</h3>
-                    <p>Matungulu NG CDF is committed to improving the lives of residents through strategic investments in education, infrastructure, and community development.</p>
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <img src="cdf.jpeg" alt="Matungulu CDF Logo" class="footer-logo-img">
+                        <span class="footer-logo-text">Matungulu NG-CDF</span>
+                    </div>
+                    <p class="footer-description">
+                        Matungulu NG-CDF is committed to improving the lives of residents through strategic investments in education, infrastructure, and community development.
+                    </p>
                     <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Gallery</a></li>
-                        <li><a href="#">Contact</a></li>
+                
+                <div class="footer-links-section">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link-item"><a href="#" class="footer-link">Home</a></li>
+                        <li class="footer-link-item"><a href="#applications" class="footer-link">Applications</a></li>
+                        <li class="footer-link-item"><a href="#features" class="footer-link">Features</a></li>
+                        <li class="footer-link-item"><a href="#process" class="footer-link">Process</a></li>
+                        <li class="footer-link-item"><a href="#" class="footer-link">FAQ</a></li>
+                        <li class="footer-link-item"><a href="#" class="footer-link">Privacy Policy</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
-                    <h3>Contact Info</h3>
-                    <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> Matungulu Constituency Office</li>
-                        <li><i class="fas fa-phone"></i> +254 7123 456 78</li>
-                        <li><i class="fas fa-envelope"></i> info@matungulucdf.go.ke</li>
-                        <li><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 5:00 PM</li>
+                
+                <div class="footer-links-section">
+                    <h3 class="footer-title">Services</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link-item"><a href="#" class="footer-link">Tertiary Bursaries</a></li>
+                        <li class="footer-link-item"><a href="#" class="footer-link">Secondary Bursaries</a></li>
+                        <li class="footer-link-item"><a href="#" class="footer-link">Application Status</a></li>
+                        <li class="footer-link-item"><a href="#" class="footer-link">Document Verification</a></li>
+                        <li class="footer-link-item"><a href="#" class="footer-link">Support & Helpdesk</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3 class="footer-title">Contact Info</h3>
+                    <ul class="contact-list">
+                        <li class="contact-item">
+                            <i class="fas fa-map-marker-alt contact-icon"></i>
+                            <span>Matungulu NG-CDF Office, Matungulu, Kenya</span>
+                        </li>
+                        <li class="contact-item">
+                            <i class="fas fa-phone-alt contact-icon"></i>
+                            <span>+254 712 345 678</span>
+                        </li>
+                        <li class="contact-item">
+                            <i class="fas fa-envelope contact-icon"></i>
+                            <span>info@matungulucdf.go.ke</span>
+                        </li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Matungulu NG CDF. All Rights Reserved. | Powered by Hon. Tom Ndaka's 2027 Vision</p>
+                &copy; 2025 Matungulu NG-CDF. All rights reserved.
             </div>
         </div>
     </footer>
 
-    <!-- Modals -->
-    <div class="modal" id="loginModal">
+    <!-- Modal for Button Clicks -->
+    <div class="modal" id="infoModal">
         <div class="modal-content">
-            <span class="close-btn" id="closeLoginModal">&times;</span>
-            <div class="modal-icon"><i class="fas fa-lock"></i></div>
-            <h2 class="modal-title">Student Login</h2>
-            <p class="modal-text">This feature will be available in 2027 if Hon. Tom Ndaka is elected. Vote for progress and efficiency in bursary management!</p>
-            <button class="modal-btn" id="closeLoginModalBtn">Got it</button>
+            <button class="modal-close">&times;</button>
+            <div class="modal-icon">
+                <i class="fas fa-info-circle"></i>
+            </div>
+            <h2 class="modal-title">Coming Soon!</h2>
+            <p class="modal-text">This feature will be implemented after Hon. Thomas Ndaka becomes MP in 2027. Vote for change!</p>
         </div>
     </div>
 
-    <div class="modal" id="bursaryModal">
-        <div class="modal-content">
-            <span class="close-btn" id="closeBursaryModal">&times;</span>
-            <div class="modal-icon"><i class="fas fa-book"></i></div>
-            <h2 class="modal-title" id="bursaryModalTitle">Bursary Applications</h2>
-            <p class="modal-text">This feature will be available in 2027 if Hon. Tom Ndaka is elected. Our vision includes a transparent, efficient, and digital bursary application process for all students in Matungulu.</p>
-            <button class="modal-btn" id="closeBursaryModalBtn">Got it</button>
-        </div>
-    </div>
-
+    <!-- Scripts -->
     <script>
-        // Wait for the DOM to be fully loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get modal elements
-            const loginModal = document.getElementById('loginModal');
-            const bursaryModal = document.getElementById('bursaryModal');
-            const bursaryModalTitle = document.getElementById('bursaryModalTitle'); 
-            
-            // Get button elements
-            const studentLoginBtn = document.getElementById('studentLoginBtn');
-            const tertiaryBtn = document.getElementById('tertiaryBtn');
-            const secondaryBtn = document.getElementById('secondaryBtn');
-            
-            // Get status elements
-            const tertiaryStatus = document.getElementById('tertiaryStatus');
-            const secondaryStatus = document.getElementById('secondaryStatus');
-            
-            // Get close buttons
-            const closeLoginModal = document.getElementById('closeLoginModal');
-            const closeBursaryModal = document.getElementById('closeBursaryModal');
-            const closeLoginModalBtn = document.getElementById('closeLoginModalBtn');
-            const closeBursaryModalBtn = document.getElementById('closeBursaryModalBtn');
-            
-            // Add event listeners for login button
-            studentLoginBtn.addEventListener('click', function() {
-                loginModal.style.display = 'flex';
+        // Mobile Toggle Functionality
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Modal Functionality
+        const infoModal = document.getElementById('infoModal');
+        const modalClose = document.querySelector('.modal-close');
+
+        // Add event listeners to all buttons
+        const buttons = document.querySelectorAll('a.btn');
+        buttons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default link behavior
+                infoModal.classList.add('active'); // Show the modal
             });
-            
-            // Add event listeners for tertiary button
-            tertiaryBtn.addEventListener('click', function() {
-                tertiaryStatus.classList.toggle('show-status');
-                bursaryModalTitle.textContent = 'Tertiary Bursary Applications';
-                bursaryModal.style.display = 'flex';
-            });
-            
-            // Add event listeners for secondary button
-            secondaryBtn.addEventListener('click', function() {
-                secondaryStatus.classList.toggle('show-status');
-                bursaryModalTitle.textContent = 'Secondary Bursary Applications';
-                bursaryModal.style.display = 'flex';
-            });
-            
-            // Close modals
-            closeLoginModal.addEventListener('click', function() {
-                loginModal.style.display = 'none';
-            });
-            
-            closeBursaryModal.addEventListener('click', function() {
-                bursaryModal.style.display = 'none';
-            });
-            
-            closeLoginModalBtn.addEventListener('click', function() {
-                loginModal.style.display = 'none';
-            });
-            
-            closeBursaryModalBtn.addEventListener('click', function() {
-                bursaryModal.style.display = 'none';
-            });
-            
-            // Close modals when clicking outside
-            window.addEventListener('click', function(event) {
-                if (event.target == loginModal) {
-                    loginModal.style.display = 'none';
-                }
-                if (event.target == bursaryModal) {
-                    bursaryModal.style.display = 'none';
-                }
-            });
-            
-            // Animation for features on scroll
-            const featureCards = document.querySelectorAll('.feature-card');
-            
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('fade-in');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            featureCards.forEach(card => {
-                observer.observe(card);
-            });
+        });
+
+        // Close modal
+        modalClose.addEventListener('click', () => {
+            infoModal.classList.remove('active');
         });
     </script>
 </body>

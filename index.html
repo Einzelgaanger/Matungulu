@@ -18,91 +18,137 @@
           <img src="cdf.jpeg" alt="Matungulu CDF Logo" class="logo-img">
           <span class="logo-text">Matungulu NG-CDF</span>
         </a>
-        <div class="nav-links">
+        
+        <!-- Hamburger menu for mobile -->
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+          <i class="fas fa-bars"></i>
+        </button>
+        
+        <!-- Navigation links -->
+        <div class="nav-links" id="navLinks">
           <a href="#" class="nav-link active">Home</a>
           <a href="#contact" class="nav-link">Contact</a>
-          <a href="auth.html" class="btn btn-primary">Student Login</a>
+          <a href="auth.html" class="btn btn-primary nav-btn">Student Login</a>
         </div>
       </nav>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <h1 class="hero-title">MATUNGULU NG-CDF BURSARY MANAGEMENT SYSTEM</h1>
-        <p class="hero-subtitle">Empowering education through transparent and efficient bursary allocation</p>
-        <div class="hero-buttons">
-          <a href="auth.html" class="btn btn-primary">Apply for Bursary</a>
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title">MATUNGULU NG-CDF BURSARY MANAGEMENT SYSTEM</h1>
+          <p class="hero-subtitle">Empowering education through transparent and efficient bursary allocation</p>
+          <div class="hero-buttons">
+            <a href="auth.html" class="btn btn-primary btn-lg">Apply for Bursary</a>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-
+    </section>
+    
+    <!-- You can add more sections here as needed -->
+  </main>
   
-  <!-- ter -->
-    <footer class="footer" id="contact">
-      <div class="container">
-          <div class="footer-grid">
-              <div class="footer-col">
-                  <div class="footer-logo">
-                      <img src="cdf.jpeg" alt="Matungulu CDF Logo" class="footer-logo-img">
-                      <span class="footer-logo-text">Matungulu NG-CDF</span>
-                  </div>
-                  <p class="footer-description">Empowering the youth through education and community development.</p>
-                  <div class="social-links">
-                      <a href="#" class="social-link">
-                          <i class="fab fa-facebook-f"></i>
-                      </a>
-                      <a href="#" class="social-link">
-                          <i class="fab fa-twitter"></i>
-                      </a>
-                      <a href="#" class="social-link">
-                          <i class="fab fa-instagram"></i>
-                      </a>
-                      <a href="#" class="social-link">
-                          <i class="fab fa-linkedin-in"></i>
-                      </a>
-                  </div>
-              </div>
-              
-              <div class="footer-col">
-                  <h3 class="footer-title">Quick Links</h3>
-                  <ul class="footer-links">
-                      <li class="footer-link-item">
-                          <a href="#home" class="footer-link">Home</a>
-                      </li>
-                      
-                      <li class="footer-link-item">
-                          <a href="#contact" class="footer-link">Contact</a>
-                      </li>
-                  </ul>
-              </div>
-              
-              <div class="footer-col">
-                  <h3 class="footer-title">Contact Us</h3>
-                  <ul class="contact-list">
-                      <li class="contact-item">
-                          <i class="fas fa-map-marker-alt contact-icon"></i>
-                          <span>Matungulu NG-CDF Office, Matungulu, Kenya</span>
-                      </li>
-                      <li class="contact-item">
-                          <i class="fas fa-phone-alt contact-icon"></i>
-                          <span>+254 700 000 000</span>
-                      </li>
-                      <li class="contact-item">
-                          <i class="fas fa-envelope contact-icon"></i>
-                          <span>info@matungulucdf.go.ke</span>
-                      </li>
-                  </ul>
-              </div>
+  <!-- Footer -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo">
+            <img src="cdf.jpeg" alt="Matungulu CDF Logo" class="footer-logo-img">
+            <span class="footer-logo-text">Matungulu NG-CDF</span>
           </div>
-          
-          <div class="copyright">
-              &copy; 2025 Matungulu NG-CDF. All rights reserved.
+          <p class="footer-description">Empowering the youth through education and community development.</p>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-link" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-link" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-link" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
           </div>
+        </div>
+        
+        <div class="footer-col">
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li class="footer-link-item">
+              <a href="#home" class="footer-link">Home</a>
+            </li>
+            <li class="footer-link-item">
+              <a href="#contact" class="footer-link">Contact</a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h3 class="footer-title">Contact Us</h3>
+          <ul class="contact-list">
+            <li class="contact-item">
+              <i class="fas fa-map-marker-alt contact-icon"></i>
+              <span>Matungulu NG-CDF Office, Matungulu, Kenya</span>
+            </li>
+            <li class="contact-item">
+              <i class="fas fa-phone-alt contact-icon"></i>
+              <span>+254 700 000 000</span>
+            </li>
+            <li class="contact-item">
+              <i class="fas fa-envelope contact-icon"></i>
+              <span>info@matungulucdf.go.ke</span>
+            </li>
+          </ul>
+        </div>
       </div>
+      
+      <div class="copyright">
+        &copy; 2025 Matungulu NG-CDF. All rights reserved.
+      </div>
+    </div>
   </footer>
+
+  <!-- JavaScript for mobile menu toggle -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileToggle = document.getElementById('mobileToggle');
+      const navLinks = document.getElementById('navLinks');
+      
+      mobileToggle.addEventListener('click', function() {
+        navLinks.classList.toggle('active');
+        mobileToggle.classList.toggle('active');
+        
+        // Change icon based on state
+        const icon = mobileToggle.querySelector('i');
+        if (icon.classList.contains('fa-bars')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+      
+      // Close menu when clicking on a link (for mobile)
+      const navLinksElements = document.querySelectorAll('.nav-link, .nav-btn');
+      navLinksElements.forEach(link => {
+        link.addEventListener('click', function() {
+          if (window.innerWidth <= 768) {
+            navLinks.classList.remove('active');
+            mobileToggle.classList.remove('active');
+            const icon = mobileToggle.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

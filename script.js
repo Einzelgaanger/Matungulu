@@ -1,6 +1,3 @@
-// Mobile Toggle
-const mobileToggle = document.getElementById('mobileToggle');
-const navLinks = document.getElementById('navLinks');
 
 mobileToggle.addEventListener('click', () => {
   navLinks.classList.toggle('active');
@@ -52,4 +49,12 @@ const observer = new IntersectionObserver((entries) => {
 
 sections.forEach(section => {
   observer.observe(section);
+});
+
+// Mobile Menu Toggle
+const mobileToggle = document.querySelector(".mobile-toggle");
+const navLinks = document.querySelector(".nav-links");
+
+mobileToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
 });

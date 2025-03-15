@@ -263,6 +263,18 @@ a {
   color: var(--red);
 }
 
+.contact-item p,
+.contact-item a {
+  margin: 0;
+  color: var(--black);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.contact-item a:hover {
+  color: var(--red);
+}
+
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -278,6 +290,17 @@ a {
 
 .contact-form textarea {
   resize: vertical;
+}
+
+/* Responsive Design for Contact Section */
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-item {
+    justify-content: flex-start;
+  }
 }
 
 /* Footer */

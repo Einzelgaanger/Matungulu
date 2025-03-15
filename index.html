@@ -88,6 +88,8 @@
 
         .section {
             padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
         }
 
         .text-center {
@@ -311,13 +313,17 @@
             margin-top: 2rem;
         }
 
+        /* Shared Background for Sections */
+        .shared-background {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('kenya.jpg') no-repeat center center/cover;
+            background-attachment: fixed;
+        }
+
         /* Scrolling Content Section */
         .scrolling-content-wrapper {
             position: relative;
             width: 100%;
             overflow: hidden;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('kenya.jpg') no-repeat center center/cover;
-            background-attachment: fixed;
         }
 
         .scrolling-content {
@@ -833,6 +839,38 @@
                 padding: 2rem;
             }
         }
+
+        /* Animation for sections appearing from beneath the footer */
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .section {
+            animation: slideUp 1s ease-out;
+        }
+
+        /* Animation for key features section content appearing from left to right */
+        @keyframes slideInFromLeft {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .features-grid .feature-card {
+            animation: slideInFromLeft 1s ease-out;
+        }
     </style>
 </head>
 <body>
@@ -875,152 +913,160 @@
         </div>
     </section>
 
-    <!-- Scrolling Content Section with Static Background -->
-    <div class="scrolling-content-wrapper">
-        <!-- Navigation Arrows -->
-        <div class="scroll-arrow scroll-left" id="scrollLeft">
-            <i class="fas fa-chevron-left"></i>
-        </div>
-        <div class="scroll-arrow scroll-right" id="scrollRight">
-            <i class="fas fa-chevron-right"></i>
-        </div>
+    <!-- Shared Background for Sections -->
+    <div class="shared-background">
+        <!-- Applications Section -->
+        <section class="section" id="applications">
+            <div class="container">
+                <div class="scrolling-content-wrapper">
+                    <div class="scrolling-content" id="scrollingContentApplications">
+                        <div class="scroll-section">
+                            <div class="scroll-section-inner">
+                                <h2 class="applications-title">Bursary Applications</h2>
+                                <div class="application-cards">
+                                    <div class="application-card animate-fade">
+                                        <div class="card-icon">
+                                            <i class="fas fa-graduation-cap"></i>
+                                        </div>
+                                        <h3 class="card-title">Tertiary Education</h3>
+                                        <p class="card-text">Apply for bursaries for universities, colleges, and technical institutions. Support your higher education journey.</p>
+                                        <a href="#" class="btn btn-primary" id="tertiaryBtn">Apply Now</a>
+                                        <div class="status-badge" id="tertiaryStatus">CLOSED</div>
+                                    </div>
+                                    
+                                    <div class="application-card animate-fade animate-delay-1">
+                                        <div class="card-icon">
+                                            <i class="fas fa-school"></i>
+                                        </div>
+                                        <h3 class="card-title">Secondary Education</h3>
+                                        <p class="card-text">Financial assistance for secondary school students. We're committed to ensuring no student is left behind.</p>
+                                        <a href="#" class="btn btn-primary" id="secondaryBtn">Apply Now</a>
+                                        <div class="status-badge" id="secondaryStatus">CLOSED</div>
+                                    </div>
+                                    
+                                    <div class="application-card animate-fade animate-delay-2">
+                                        <div class="card-icon">
+                                            <i class="fas fa-desktop"></i>
+                                        </div>
+                                        <h3 class="card-title">Track Application</h3>
+                                        <p class="card-text">Already applied? Check the status of your bursary application and stay updated on the progress.</p>
+                                        <a href="#" class="btn btn-secondary" id="trackBtn">Track Status</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <!-- Horizontal Scrolling Content -->
-        <div class="scrolling-content" id="scrollingContent">
-            <!-- Applications Section -->
-            <div class="scroll-section" id="applications">
-                <div class="scroll-section-inner">
-                    <h2 class="applications-title">Bursary Applications</h2>
-                    <div class="application-cards">
-                        <div class="application-card animate-fade">
-                            <div class="card-icon">
-                                <i class="fas fa-graduation-cap"></i>
+        <!-- Features Section -->
+        <section class="section" id="features">
+            <div class="container">
+                <div class="scrolling-content-wrapper">
+                    <div class="scrolling-content" id="scrollingContentFeatures">
+                        <div class="scroll-section">
+                            <div class="scroll-section-inner">
+                                <h2 class="applications-title">Key Features</h2>
+                                <p class="text-center" style="max-width: 700px; margin: 0 auto 3rem;">Our bursary management system is designed to make the application process seamless, transparent, and accessible to all students.</p>
+                                
+                                <div class="features-grid">
+                                    <div class="feature-card animate-fade">
+                                        <div class="feature-icon">
+                                            <i class="fas fa-mobile-alt"></i>
+                                        </div>
+                                        <h3 class="feature-title">Online Application</h3>
+                                        <p class="feature-description">Apply for bursaries from anywhere using our mobile-friendly platform. No more long queues or paperwork.</p>
+                                    </div>
+                                    
+                                    <div class="feature-card animate-fade animate-delay-1">
+                                        <div class="feature-icon">
+                                            <i class="fas fa-chart-line"></i>
+                                        </div>
+                                        <h3 class="feature-title">Real-time Tracking</h3>
+                                        <p class="feature-description">Track your application status in real-time and receive updates via SMS and email notifications.</p>
+                                    </div>
+                                    
+                                    <div class="feature-card animate-fade animate-delay-2">
+                                        <div class="feature-icon">
+                                            <i class="fas fa-shield-alt"></i>
+                                        </div>
+                                        <h3 class="feature-title">Secure & Transparent</h3>
+                                        <p class="feature-description">Our system ensures data security and transparency in the allocation process, giving you peace of mind.</p>
+                                    </div>
+                                    
+                                    <div class="feature-card animate-fade">
+                                        <div class="feature-icon">
+                                            <i class="fas fa-users"></i>
+                                        </div>
+                                        <h3 class="feature-title">Community Support</h3>
+                                        <p class="feature-description">We work closely with the community to ensure fair and equitable distribution of bursaries.</p>
+                                    </div>
+                                    
+                                    <div class="feature-card animate-fade animate-delay-1">
+                                        <div class="feature-icon">
+                                            <i class="fas fa-file-alt"></i>
+                                        </div>
+                                        <h3 class="feature-title">Document Management</h3>
+                                        <p class="feature-description">Upload and manage all required documents securely through our platform.</p>
+                                    </div>
+                                    
+                                    <div class="feature-card animate-fade animate-delay-2">
+                                        <div class="feature-icon">
+                                            <i class="fas fa-hand-holding-heart"></i>
+                                        </div>
+                                        <h3 class="feature-title">Need-Based Allocation</h3>
+                                        <p class="feature-description">Bursaries are allocated based on need, ensuring support reaches those who need it most.</p>
+                                    </div>
+                                </div>
                             </div>
-                            <h3 class="card-title">Tertiary Education</h3>
-                            <p class="card-text">Apply for bursaries for universities, colleges, and technical institutions. Support your higher education journey.</p>
-                            <a href="#" class="btn btn-primary" id="tertiaryBtn">Apply Now</a>
-                            <div class="status-badge" id="tertiaryStatus">CLOSED</div>
-                        </div>
-                        
-                        <div class="application-card animate-fade animate-delay-1">
-                            <div class="card-icon">
-                                <i class="fas fa-school"></i>
-                            </div>
-                            <h3 class="card-title">Secondary Education</h3>
-                            <p class="card-text">Financial assistance for secondary school students. We're committed to ensuring no student is left behind.</p>
-                            <a href="#" class="btn btn-primary" id="secondaryBtn">Apply Now</a>
-                            <div class="status-badge" id="secondaryStatus">CLOSED</div>
-                        </div>
-                        
-                        <div class="application-card animate-fade animate-delay-2">
-                            <div class="card-icon">
-                                <i class="fas fa-desktop"></i>
-                            </div>
-                            <h3 class="card-title">Track Application</h3>
-                            <p class="card-text">Already applied? Check the status of your bursary application and stay updated on the progress.</p>
-                            <a href="#" class="btn btn-secondary" id="trackBtn">Track Status</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Features Section -->
-            <div class="scroll-section" id="features">
-                <div class="scroll-section-inner">
-                    <h2 class="applications-title">Key Features</h2>
-                    <p class="text-center" style="max-width: 700px; margin: 0 auto 3rem;">Our bursary management system is designed to make the application process seamless, transparent, and accessible to all students.</p>
-                    
-                    <div class="features-grid">
-                        <div class="feature-card animate-fade">
-                            <div class="feature-icon">
-                                <i class="fas fa-mobile-alt"></i>
-                            </div>
-                            <h3 class="feature-title">Online Application</h3>
-                            <p class="feature-description">Apply for bursaries from anywhere using our mobile-friendly platform. No more long queues or paperwork.</p>
-                        </div>
-                        
-                        <div class="feature-card animate-fade animate-delay-1">
-                            <div class="feature-icon">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <h3 class="feature-title">Real-time Tracking</h3>
-                            <p class="feature-description">Track your application status in real-time and receive updates via SMS and email notifications.</p>
-                        </div>                        <div class="feature-card animate-fade animate-delay-2">
-                            <div class="feature-icon">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <h3 class="feature-title">Secure & Transparent</h3>
-                            <p class="feature-description">Our system ensures data security and transparency in the allocation process, giving you peace of mind.</p>
-                        </div>
-                        
-                        <div class="feature-card animate-fade">
-                            <div class="feature-icon">
-                                <i class="fas fa-users"></i>
-                            </div>
-                            <h3 class="feature-title">Community Support</h3>
-                            <p class="feature-description">We work closely with the community to ensure fair and equitable distribution of bursaries.</p>
-                        </div>
-                        
-                        <div class="feature-card animate-fade animate-delay-1">
-                            <div class="feature-icon">
-                                <i class="fas fa-file-alt"></i>
-                            </div>
-                            <h3 class="feature-title">Document Management</h3>
-                            <p class="feature-description">Upload and manage all required documents securely through our platform.</p>
-                        </div>
-                        
-                        <div class="feature-card animate-fade animate-delay-2">
-                            <div class="feature-icon">
-                                <i class="fas fa-hand-holding-heart"></i>
-                            </div>
-                            <h3 class="feature-title">Need-Based Allocation</h3>
-                            <p class="feature-description">Bursaries are allocated based on need, ensuring support reaches those who need it most.</p>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- Process Section -->
-            <div class="scroll-section" id="process">
-                <div class="scroll-section-inner">
-                    <h2 class="applications-title">Application Process</h2>
-                    <p class="text-center" style="max-width: 700px; margin: 0 auto 3rem;">Our streamlined process ensures a hassle-free experience for all applicants. Follow these steps to apply for a bursary.</p>
-                    
-                    <div class="features-grid">
-                        <div class="feature-card animate-fade">
-                            <div class="feature-icon">
-                                <i class="fas fa-user-plus"></i>
+        </section>
+
+        <!-- Process Section -->
+        <section class="section" id="process">
+            <div class="container">
+                <div class="scrolling-content-wrapper">
+                    <div class="scrolling-content" id="scrollingContentProcess">
+                        <div class="scroll-section">
+                            <div class="scroll-section-inner">
+                                <h2 class="applications-title">Application Process</h2>
+                                <p class="text-center" style="max-width: 700px; margin: 0 auto 3rem;">Our streamlined process ensures a hassle-free experience for all applicants. Follow these steps to apply for a bursary.</p>
+                                
+                                <div class="features-grid">
+                                    <div class="feature-card animate-fade">
+                                        <div class="feature-icon">
+                                            <i class="fas fa-user-plus"></i>
+                                        </div>
+                                        <h3 class="feature-title">Create Account</h3>
+                                        <p class="feature-description">Register on our platform by providing your basic details and creating a secure password.</p>
+                                    </div>
+                                    
+                                    <div class="feature-card animate-fade animate-delay-1">
+                                        <div class="feature-icon">
+                                            <i class="fas fa-edit"></i>
+                                        </div>
+                                        <h3 class="feature-title">Fill Application</h3>
+                                        <p class="feature-description">Complete the online application form with accurate details and upload required documents.</p>
+                                    </div>
+                                    
+                                    <div class="feature-card animate-fade animate-delay-2">
+                                        <div class="feature-icon">
+                                            <i class="fas fa-check-circle"></i>
+                                        </div>
+                                        <h3 class="feature-title">Submit & Track</h3>
+                                        <p class="feature-description">Submit your application and track its progress in real-time through your dashboard.</p>
+                                    </div>
+                                </div>
                             </div>
-                            <h3 class="feature-title">Create Account</h3>
-                            <p class="feature-description">Register on our platform by providing your basic details and creating a secure password.</p>
-                        </div>
-                        
-                        <div class="feature-card animate-fade animate-delay-1">
-                            <div class="feature-icon">
-                                <i class="fas fa-edit"></i>
-                            </div>
-                            <h3 class="feature-title">Fill Application</h3>
-                            <p class="feature-description">Complete the online application form with accurate details and upload required documents.</p>
-                        </div>
-                        
-                        <div class="feature-card animate-fade animate-delay-2">
-                            <div class="feature-icon">
-                                <i class="fas fa-check-circle"></i>
-                            </div>
-                            <h3 class="feature-title">Submit & Track</h3>
-                            <p class="feature-description">Submit your application and track its progress in real-time through your dashboard.</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <!-- Scroll Indicators -->
-        <div class="scroll-indicators" id="scrollIndicators">
-            <div class="scroll-indicator active" data-index="0"></div>
-            <div class="scroll-indicator" data-index="1"></div>
-            <div class="scroll-indicator" data-index="2"></div>
-        </div>
+        </section>
     </div>
 
     <!-- Footer -->
@@ -1141,43 +1187,42 @@
             loginModal.classList.remove('active');
         });
 
-        // Scrolling Content
-        const scrollingContent = document.getElementById('scrollingContent');
-        const scrollLeftBtn = document.getElementById('scrollLeft');
-        const scrollRightBtn = document.getElementById('scrollRight');
-        const scrollIndicators = document.getElementById('scrollIndicators').children;
-        let currentIndex = 0;
+        // Scrolling Content for Each Section
+        const scrollingContentApplications = document.getElementById('scrollingContentApplications');
+        const scrollingContentFeatures = document.getElementById('scrollingContentFeatures');
+        const scrollingContentProcess = document.getElementById('scrollingContentProcess');
 
-        scrollLeftBtn.addEventListener('click', () => {
-            if (currentIndex > 0) {
-                currentIndex--;
-                updateScroll();
-            }
-        });
-
-        scrollRightBtn.addEventListener('click', () => {
-            if (currentIndex < scrollIndicators.length - 1) {
-                currentIndex++;
-                updateScroll();
-            }
-        });
-
-        Array.from(scrollIndicators).forEach((indicator, index) => {
-            indicator.addEventListener('click', () => {
-                currentIndex = index;
-                updateScroll();
+        // Add horizontal scrolling functionality to each section
+        [scrollingContentApplications, scrollingContentFeatures, scrollingContentProcess].forEach((scrollingContent) => {
+            scrollingContent.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                scrollingContent.scrollBy({
+                    left: e.deltaY < 0 ? -100 : 100,
+                    behavior: 'smooth'
+                });
             });
         });
 
-        function updateScroll() {
-            scrollingContent.scrollTo({
-                left: scrollingContent.clientWidth * currentIndex,
-                behavior: 'smooth'
+        // Handle scroll events to trigger animations
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach((section) => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const sectionBottom = section.getBoundingClientRect().bottom;
+                if (sectionTop < window.innerHeight && sectionBottom > 0) {
+                    section.style.animation = 'slideUp 1s ease-out';
+                }
             });
-            Array.from(scrollIndicators).forEach((indicator, index) => {
-                indicator.classList.toggle('active', index === currentIndex);
+
+            const featureCards = document.querySelectorAll('.features-grid .feature-card');
+            featureCards.forEach((card) => {
+                const cardTop = card.getBoundingClientRect().top;
+                const cardBottom = card.getBoundingClientRect().bottom;
+                if (cardTop < window.innerHeight && cardBottom > 0) {
+                    card.style.animation = 'slideInFromLeft 1s ease-out';
+                }
             });
-        }
+        });
     </script>
 </body>
 </html>

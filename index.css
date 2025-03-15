@@ -205,7 +205,7 @@ main {
   min-height: 500px;
   display: flex;
   align-items: center;
-  background: linear-gradient(rgba(6, 127, 12, 0.4), rgba(0, 0, 0, 0.7)), url('bc.png') no-repeat center center/cover;
+  background: linear-gradient(rgba(6, 127, 12, 0.2), rgba(216, 12, 12, 0.2)), url('bc.png') no-repeat center center/cover;
   margin-top: 0;
   overflow: hidden;
   text-align: center;

@@ -212,6 +212,7 @@ a {
 
 .how-it-works-text {
   flex: 1;
+  text-align: left; /* Align text to the left */
 }
 
 .how-it-works-text h3 {
@@ -254,12 +255,19 @@ a {
 .contact-item {
   display: flex;
   align-items: center;
+  justify-content: flex-end; /* Align icons to the right */
   gap: 1rem;
 }
 
 .contact-item i {
   font-size: 1.5rem;
   color: var(--red);
+  order: 2; /* Move icon to the right */
+}
+
+.contact-item p,
+.contact-item a {
+  order: 1; /* Move text to the left */
 }
 
 .contact-form {
@@ -372,11 +380,24 @@ a {
 
   .how-it-works-content {
     flex-direction: column;
-    text-align: center;
+    text-align: left; /* Align text to the left on mobile */
   }
 
   .contact-grid {
     grid-template-columns: 1fr;
+  }
+
+  .contact-item {
+    justify-content: flex-start; /* Align icons to the left on mobile */
+  }
+
+  .contact-item i {
+    order: 1; /* Move icon to the left on mobile */
+  }
+
+  .contact-item p,
+  .contact-item a {
+    order: 2; /* Move text to the right on mobile */
   }
 }
 

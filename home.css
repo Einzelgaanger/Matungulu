@@ -158,14 +158,14 @@ a {
 }
 
 /* Features Section */
-.vision-grid {
+.features-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
 }
 
-.vision-card {
+.feature-card {
   text-align: center;
   padding: 2rem;
   background-color: var(--gray-100);
@@ -174,67 +174,66 @@ a {
   border: 1px solid var(--green);
 }
 
-.vision-card:hover {
+.feature-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.vision-icon {
+.feature-icon {
   font-size: 2.5rem;
   color: var(--red);
   margin-bottom: 1rem;
 }
 
-.vision-title {
+.feature-title {
   font-size: 1.5rem;
   margin-bottom: 1rem;
   color: var(--green);
 }
 
-.vision-description {
+.feature-description {
   color: var(--gray-600);
 }
 
 /* How It Works Section */
-.bursary-content {
+.how-it-works-content {
   display: flex;
   align-items: center;
-  gap: 1rem; /* Reduced the gap between image and text */
+  gap: 2rem;
   margin-top: 2rem;
 }
 
-.bursary-image img {
+.how-it-works-image img {
   border-radius: var(--border-radius);
-  max-width: 50%;
+  max-width: 100%;
   height: auto;
   border: 2px solid var(--green);
 }
 
-.bursary-text {
+.how-it-works-text {
   flex: 1;
-  margin-left: 1rem; /* Added margin to bring text closer to the image */
 }
 
-.bursary-text h3 {
+.how-it-works-text h3 {
   font-size: 1.75rem;
   margin-bottom: 1rem;
   color: var(--green);
 }
 
-.bursary-text ul {
+.how-it-works-text ul {
   list-style: none;
   margin-bottom: 2rem;
-  padding-left: 0; /* Remove default padding */
+  padding-left: 0;
 }
 
-.bursary-text ul li {
+.how-it-works-text ul li {
   margin-bottom: 0.5rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.bursary-text ul li i {
+.how-it-works-text ul li i {
   color: var(--red);
 }
 
@@ -371,7 +370,7 @@ a {
     text-align: center;
   }
 
-  .bursary-content {
+  .how-it-works-content {
     flex-direction: column;
     text-align: center;
   }
@@ -394,7 +393,7 @@ a {
     padding: 0.5rem 1rem;
   }
 
-  .vision-grid {
+  .features-grid {
     grid-template-columns: 1fr;
   }
 

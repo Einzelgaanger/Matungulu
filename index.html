@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-    
         /* Kenyan Flag themed CSS */
         :root {
             --primary: #008000; /* Kenyan green */
@@ -278,7 +277,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(0, 128, 0, 0.5), rgba(188, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+            background: linear-gradient(135deg, rgba(0, 128, 0, 0.4), rgba(188, 0, 0, 0), rgba(0, 0, 0, 0));
             z-index: 1;
         }
 
@@ -312,17 +311,60 @@
             margin-top: 2rem;
         }
 
-        /* Applications Section */
-        .applications {
-            background-color: var(--light);
-            border-radius: var(--border-radius-lg);
-            box-shadow: var(--shadow-md);
-            padding: 3rem;
-            margin-top: -5rem;
+        /* Scrolling Content Section */
+        .scrolling-content-wrapper {
             position: relative;
-            z-index: 10;
+            width: 100%;
+            overflow: hidden;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('kenya.jpg') no-repeat center center/cover;
+            background-attachment: fixed;
         }
 
+        .scrolling-content {
+            width: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+            padding: 5rem 0;
+            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) var(--gray-200);
+        }
+
+        .scrolling-content::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .scrolling-content::-webkit-scrollbar-track {
+            background: var(--gray-200);
+            border-radius: var(--border-radius-full);
+        }
+
+        .scrolling-content::-webkit-scrollbar-thumb {
+            background-color: var(--primary);
+            border-radius: var(--border-radius-full);
+        }
+
+        .scroll-section {
+            display: inline-block;
+            vertical-align: top;
+            width: 100%;
+            min-width: 100%;
+            max-width: 100%;
+            white-space: normal;
+            padding: 0 2rem;
+        }
+
+        .scroll-section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-lg);
+            padding: 3rem;
+        }
+
+        /* Applications Section */
         .applications-title {
             font-size: 2rem;
             text-align: center;
@@ -412,10 +454,6 @@
         }
 
         /* Features Section */
-        .features {
-            background-color: var(--gray-100);
-        }
-
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -470,277 +508,61 @@
             font-size: 1rem;
         }
 
-        /* Vision Section */
-        .vision {
-            background-color: var(--secondary);
-            color: var(--light);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .vision::before {
-            content: '';
+        /* Navigation arrows for scrolling */
+        .scroll-arrow {
             position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            background: linear-gradient(135deg, rgba(0, 128, 0, 0.3) 0%, rgba(0, 0, 0, 0.9) 100%);
-            z-index: 1;
-        }
-
-        /* Vision Section (continued) */
-        .vision-content {
-            position: relative;
-            z-index: 2;
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .vision-title {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .vision-text {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
-        }
-
-        /* Stats Section */
-        .stats {
-            background-color: var(--light);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-
-        .stat-item {
-            padding: 2rem;
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        /* Alternating stat colors to match Kenyan flag */
-        .stat-item:nth-child(3n+2) .stat-number {
-            color: var(--accent);
-        }
-
-        .stat-item:nth-child(3n+3) .stat-number {
-            color: var(--secondary);
-        }
-
-        .stat-label {
-            font-size: 1.1rem;
-            color: var(--gray-700);
-            font-weight: 500;
-        }
-
-        /* Process Section */
-        .process {
-            background-color: var(--gray-100);
-        }
-
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .process-step {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: var(--light);
-            border-radius: var(--border-radius-md);
-            padding: 2.5rem;
-            text-align: center;
-            transition: var(--transition);
-            box-shadow: var(--shadow);
-            position: relative;
-        }
-
-        .process-step:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .step-number {
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 60px;
-            height: 60px;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            cursor: pointer;
+            z-index: 10;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .scroll-arrow:hover {
             background-color: var(--primary);
             color: var(--light);
-            border-radius: var(--border-radius-full);
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
         }
 
-        /* Alternating process step colors */
-        .process-step:nth-child(3n+2) .step-number {
-            background-color: var(--accent);
+        .scroll-left {
+            left: 20px;
         }
 
-        .process-step:nth-child(3n+3) .step-number {
-            background-color: var(--secondary);
+        .scroll-right {
+            right: 20px;
         }
 
-        .step-title {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-        }
-
-        .step-description {
-            color: var(--gray-600);
-        }
-
-        /* Testimonials Section */
-        .testimonials {
-            background-color: var(--light);
-        }
-
-        .testimonial-slider {
-            position: relative;
-            overflow: hidden;
-            margin-top: 3rem;
-        }
-
-        .testimonial-slide {
-            background-color: var(--gray-100);
-            border-radius: var(--border-radius-md);
-            padding: 2rem;
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto;
-            box-shadow: var(--shadow);
-            border-left: 4px solid var(--primary);
-        }
-
-        .testimonial-quote {
-            font-size: 1.1rem;
-            font-style: italic;
-            color: var(--gray-700);
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        .testimonial-author {
+        /* Scroll indicators */
+        .scroll-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            gap: 10px;
         }
 
-        .author-name {
-            font-weight: 600;
-            color: var(--secondary);
-            margin-bottom: 0.25rem;
-        }
-
-        .author-role {
-            font-size: 0.875rem;
-            color: var(--gray-600);
-        }
-
-        /* FAQ Section */
-        .faq {
-            background-color: var(--gray-100);
-        }
-
-        .faq-list {
-            max-width: 800px;
-            margin: 3rem auto 0;
-        }
-
-        .faq-item {
-            margin-bottom: 1rem;
-            border-radius: var(--border-radius-md);
-            background-color: var(--light);
-            box-shadow: var(--shadow-sm);
-            overflow: hidden;
-        }
-
-        .faq-question {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.25rem 1.5rem;
-            font-weight: 600;
+        .scroll-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
             cursor: pointer;
             transition: var(--transition);
         }
 
-        .faq-question:hover {
-            background-color: rgba(0, 128, 0, 0.05);
-        }
-
-        .faq-answer {
-            padding: 0 1.5rem;
-            max-height: 0;
-            overflow: hidden;
-            transition: var(--transition);
-        }
-
-        .faq-answer-content {
-            padding-bottom: 1.5rem;
-            color: var(--gray-600);
-        }
-
-        .faq-item.active .faq-question {
-            background-color: rgba(0, 128, 0, 0.05);
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 500px;
-        }
-
-        /* CTA Section */
-        .cta {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: var(--light);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(to right, var(--secondary) 33%, var(--accent) 33%, var(--accent) 67%, var(--primary) 67%);
-        }
-
-        .cta-content {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .cta-title {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .cta-text {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
+        .scroll-indicator.active {
+            background-color: var(--primary);
+            transform: scale(1.3);
         }
 
         /* Footer */
@@ -993,12 +815,24 @@
                 gap: 1rem;
             }
 
-            .applications {
-                margin-top: -3rem;
+            .scroll-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .scroll-left {
+                left: 10px;
+            }
+
+            .scroll-right {
+                right: 10px;
+            }
+
+            .scroll-section-inner {
                 padding: 2rem;
             }
         }
-   
     </style>
 </head>
 <body>
@@ -1041,149 +875,203 @@
         </div>
     </section>
 
-    <!-- Applications Section -->
-    <section class="section" id="applications">
-        <div class="container">
-            <div class="applications">
-                <h2 class="applications-title">Bursary Applications</h2>
-                <div class="application-cards">
-                    <div class="application-card animate-fade">
-                        <div class="card-icon">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <h3 class="card-title">Tertiary Education</h3>
-                        <p class="card-text">Apply for bursaries for universities, colleges, and technical institutions. Support your higher education journey.</p>
-                        <a href="#" class="btn btn-primary" id="tertiaryBtn">Apply Now</a>
-                        <div class="status-badge" id="tertiaryStatus">CLOSED</div>
-                    </div>
-                    
-                    <div class="application-card animate-fade animate-delay-1">
-                        <div class="card-icon">
-                            <i class="fas fa-school"></i>
-                        </div>
-                        <h3 class="card-title">Secondary Education</h3>
-                        <p class="card-text">Financial assistance for secondary school students. We're committed to ensuring no student is left behind.</p>
-                        <a href="#" class="btn btn-primary" id="secondaryBtn">Apply Now</a>
-                        <div class="status-badge" id="secondaryStatus">CLOSED</div>
-                    </div>
-                    
-                    <div class="application-card animate-fade animate-delay-2">
-                        <div class="card-icon">
-                            <i class="fas fa-desktop"></i>
-                        </div>
-                        <h3 class="card-title">Track Application</h3>
-                        <p class="card-text">Already applied? Check the status of your bursary application and stay updated on the progress.</p>
-                        <a href="#" class="btn btn-secondary" id="trackBtn">Track Status</a>
-                    </div>
-                </div>
-            </div>
+    <!-- Scrolling Content Section with Static Background -->
+    <div class="scrolling-content-wrapper">
+        <!-- Navigation Arrows -->
+        <div class="scroll-arrow scroll-left" id="scrollLeft">
+            <i class="fas fa-chevron-left"></i>
         </div>
-    </section>
+        <div class="scroll-arrow scroll-right" id="scrollRight">
+            <i class="fas fa-chevron-right"></i>
+        </div>
 
-    <!-- Features Section -->
-    <section class="section features" id="features">
-        <div class="container">
-            <h2 class="section-title text-center">Key Features</h2>
-            <p class="text-center" style="max-width: 700px; margin: 0 auto 3rem;">Our bursary management system is designed to make the application process seamless, transparent, and accessible to all students.</p>
+        <!-- Horizontal Scrolling Content -->
+        <div class="scrolling-content" id="scrollingContent">
+            <!-- Applications Section -->
+            <div class="scroll-section" id="applications">
+                <div class="scroll-section-inner">
+                    <h2 class="applications-title">Bursary Applications</h2>
+                    <div class="application-cards">
+                        <div class="application-card animate-fade">
+                            <div class="card-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h3 class="card-title">Tertiary Education</h3>
+                            <p class="card-text">Apply for bursaries for universities, colleges, and technical institutions. Support your higher education journey.</p>
+                            <a href="#" class="btn btn-primary" id="tertiaryBtn">Apply Now</a>
+                            <div class="status-badge" id="tertiaryStatus">CLOSED</div>
+                        </div>
+                        
+                        <div class="application-card animate-fade animate-delay-1">
+                            <div class="card-icon">
+                                <i class="fas fa-school"></i>
+                            </div>
+                            <h3 class="card-title">Secondary Education</h3>
+                            <p class="card-text">Financial assistance for secondary school students. We're committed to ensuring no student is left behind.</p>
+                            <a href="#" class="btn btn-primary" id="secondaryBtn">Apply Now</a>
+                            <div class="status-badge" id="secondaryStatus">CLOSED</div>
+                        </div>
+                        
+                        <div class="application-card animate-fade animate-delay-2">
+                            <div class="card-icon">
+                                <i class="fas fa-desktop"></i>
+                            </div>
+                            <h3 class="card-title">Track Application</h3>
+                            <p class="card-text">Already applied? Check the status of your bursary application and stay updated on the progress.</p>
+                            <a href="#" class="btn btn-secondary" id="trackBtn">Track Status</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
             
-            <div class="features-grid">
-                <div class="feature-card animate-fade">
-                    <div class="feature-icon">
-                        <i class="fas fa-mobile-alt"></i>
+            <!-- Features Section -->
+            <div class="scroll-section" id="features">
+                <div class="scroll-section-inner">
+                    <h2 class="applications-title">Key Features</h2>
+                    <p class="text-center" style="max-width: 700px; margin: 0 auto 3rem;">Our bursary management system is designed to make the application process seamless, transparent, and accessible to all students.</p>
+                    
+                    <div class="features-grid">
+                        <div class="feature-card animate-fade">
+                            <div class="feature-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h3 class="feature-title">Online Application</h3>
+                            <p class="feature-description">Apply for bursaries from anywhere using our mobile-friendly platform. No more long queues or paperwork.</p>
+                        </div>
+                        
+                        <div class="feature-card animate-fade animate-delay-1">
+                            <div class="feature-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3 class="feature-title">Real-time Tracking</h3>
+                            <p class="feature-description">Track your application status in real-time and receive updates via SMS and email notifications.</p>
+                        </div>                        <div class="feature-card animate-fade animate-delay-2">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3 class="feature-title">Secure & Transparent</h3>
+                            <p class="feature-description">Our system ensures data security and transparency in the allocation process, giving you peace of mind.</p>
+                        </div>
+                        
+                        <div class="feature-card animate-fade">
+                            <div class="feature-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3 class="feature-title">Community Support</h3>
+                            <p class="feature-description">We work closely with the community to ensure fair and equitable distribution of bursaries.</p>
+                        </div>
+                        
+                        <div class="feature-card animate-fade animate-delay-1">
+                            <div class="feature-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <h3 class="feature-title">Document Management</h3>
+                            <p class="feature-description">Upload and manage all required documents securely through our platform.</p>
+                        </div>
+                        
+                        <div class="feature-card animate-fade animate-delay-2">
+                            <div class="feature-icon">
+                                <i class="fas fa-hand-holding-heart"></i>
+                            </div>
+                            <h3 class="feature-title">Need-Based Allocation</h3>
+                            <p class="feature-description">Bursaries are allocated based on need, ensuring support reaches those who need it most.</p>
+                        </div>
                     </div>
-                    <h3 class="feature-title">Online Application</h3>
-                    <p class="feature-description">Apply for bursaries from anywhere using our mobile-friendly platform. No more long queues or paperwork.</p>
                 </div>
-                
-                <div class="feature-card animate-fade animate-delay-1">
-                    <div class="feature-icon">
-                        <i class="fas fa-chart-line"></i>
+            </div>
+            
+            <!-- Process Section -->
+            <div class="scroll-section" id="process">
+                <div class="scroll-section-inner">
+                    <h2 class="applications-title">Application Process</h2>
+                    <p class="text-center" style="max-width: 700px; margin: 0 auto 3rem;">Our streamlined process ensures a hassle-free experience for all applicants. Follow these steps to apply for a bursary.</p>
+                    
+                    <div class="features-grid">
+                        <div class="feature-card animate-fade">
+                            <div class="feature-icon">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                            <h3 class="feature-title">Create Account</h3>
+                            <p class="feature-description">Register on our platform by providing your basic details and creating a secure password.</p>
+                        </div>
+                        
+                        <div class="feature-card animate-fade animate-delay-1">
+                            <div class="feature-icon">
+                                <i class="fas fa-edit"></i>
+                            </div>
+                            <h3 class="feature-title">Fill Application</h3>
+                            <p class="feature-description">Complete the online application form with accurate details and upload required documents.</p>
+                        </div>
+                        
+                        <div class="feature-card animate-fade animate-delay-2">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <h3 class="feature-title">Submit & Track</h3>
+                            <p class="feature-description">Submit your application and track its progress in real-time through your dashboard.</p>
+                        </div>
                     </div>
-                    <h3 class="feature-title">Real-time Tracking</h3>
-                    <p class="feature-description">Track your application status in real-time and receive updates via SMS and email notifications.</p>
-                </div>
-                
-                <div class="feature-card animate-fade animate-delay-2">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3 class="feature-title">Transparent Process</h3>
-                    <p class="feature-description">Our selection process is fair and transparent, with clear criteria for bursary allocation to deserving students.</p>
-                </div>
-                
-                <div class="feature-card animate-fade">
-                    <div class="feature-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h3 class="feature-title">Fast Processing</h3>
-                    <p class="feature-description">Efficient review and approval process ensures timely disbursement of funds when you need them most.</p>
-                </div>
-                
-                <div class="feature-card animate-fade animate-delay-1">
-                    <div class="feature-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3 class="feature-title">Support System</h3>
-                    <p class="feature-description">Dedicated support team ready to assist you with any questions or issues regarding your application.</p>
-                </div>
-                
-                <div class="feature-card animate-fade animate-delay-2">
-                    <div class="feature-icon">
-                        <i class="fas fa-file-alt"></i>
-                    </div>
-                    <h3 class="feature-title">Digital Records</h3>
-                    <p class="feature-description">All your applications and documents are securely stored digitally for easy future references and renewals.</p>
                 </div>
             </div>
         </div>
-    </section>
+        
+        <!-- Scroll Indicators -->
+        <div class="scroll-indicators" id="scrollIndicators">
+            <div class="scroll-indicator active" data-index="0"></div>
+            <div class="scroll-indicator" data-index="1"></div>
+            <div class="scroll-indicator" data-index="2"></div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer" id="contact">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-info">
+                <div class="footer-col">
                     <div class="footer-logo">
                         <img src="cdf.jpeg" alt="Matungulu CDF Logo" class="footer-logo-img">
                         <span class="footer-logo-text">Matungulu NG-CDF</span>
                     </div>
-                    <p class="footer-description">
-                        Matungulu NG-CDF is committed to improving the lives of residents through strategic investments in education, infrastructure, and community development.
-                    </p>
+                    <p class="footer-description">Empowering the youth through education and community development.</p>
                     <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
                     </div>
                 </div>
                 
-                <div class="footer-links-section">
+                <div class="footer-col">
                     <h3 class="footer-title">Quick Links</h3>
                     <ul class="footer-links">
-                        <li class="footer-link-item"><a href="#" class="footer-link">Home</a></li>
-                        <li class="footer-link-item"><a href="#applications" class="footer-link">Applications</a></li>
-                        <li class="footer-link-item"><a href="#features" class="footer-link">Features</a></li>
-                        <li class="footer-link-item"><a href="#process" class="footer-link">Process</a></li>
-                        <li class="footer-link-item"><a href="#" class="footer-link">FAQ</a></li>
-                        <li class="footer-link-item"><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li class="footer-link-item">
+                            <a href="#home" class="footer-link">Home</a>
+                        </li>
+                        <li class="footer-link-item">
+                            <a href="#applications" class="footer-link">Applications</a>
+                        </li>
+                        <li class="footer-link-item">
+                            <a href="#features" class="footer-link">Features</a>
+                        </li>
+                        <li class="footer-link-item">
+                            <a href="#process" class="footer-link">Process</a>
+                        </li>
+                        <li class="footer-link-item">
+                            <a href="#contact" class="footer-link">Contact</a>
+                        </li>
                     </ul>
                 </div>
                 
-                <div class="footer-links-section">
-                    <h3 class="footer-title">Services</h3>
-                    <ul class="footer-links">
-                        <li class="footer-link-item"><a href="#" class="footer-link">Tertiary Bursaries</a></li>
-                        <li class="footer-link-item"><a href="#" class="footer-link">Secondary Bursaries</a></li>
-                        <li class="footer-link-item"><a href="#" class="footer-link">Application Status</a></li>
-                        <li class="footer-link-item"><a href="#" class="footer-link">Document Verification</a></li>
-                        <li class="footer-link-item"><a href="#" class="footer-link">Support & Helpdesk</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-contact">
-                    <h3 class="footer-title">Contact Info</h3>
+                <div class="footer-col">
+                    <h3 class="footer-title">Contact Us</h3>
                     <ul class="contact-list">
                         <li class="contact-item">
                             <i class="fas fa-map-marker-alt contact-icon"></i>
@@ -1191,7 +1079,7 @@
                         </li>
                         <li class="contact-item">
                             <i class="fas fa-phone-alt contact-icon"></i>
-                            <span>+254 712 345 678</span>
+                            <span>+254 700 000 000</span>
                         </li>
                         <li class="contact-item">
                             <i class="fas fa-envelope contact-icon"></i>
@@ -1200,27 +1088,39 @@
                     </ul>
                 </div>
             </div>
+            
             <div class="copyright">
-                &copy; 2025 Matungulu NG-CDF. All rights reserved.
+                &copy; 2024 Matungulu NG-CDF. All rights reserved.
             </div>
         </div>
     </footer>
 
-    <!-- Modal for Button Clicks -->
-    <div class="modal" id="infoModal">
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
         <div class="modal-content">
-            <button class="modal-close">&times;</button>
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
             <div class="modal-icon">
-                <i class="fas fa-info-circle"></i>
+                <i class="fas fa-user-circle"></i>
             </div>
-            <h2 class="modal-title">Coming Soon!</h2>
-            <p class="modal-text">This feature will be implemented after Hon. Thomas Ndaka becomes MP in 2027. Vote for change!</p>
+            <h3 class="modal-title">Student Login</h3>
+            <p class="modal-text">Enter your credentials to access your bursary application dashboard.</p>
+            <form id="loginForm">
+                <div class="form-group">
+                    <input type="email" id="loginEmail" placeholder="Email Address" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="loginPassword" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg">Login</button>
+            </form>
         </div>
     </div>
 
     <!-- Scripts -->
     <script>
-        // Mobile Toggle Functionality
+        // Mobile Toggle
         const mobileToggle = document.getElementById('mobileToggle');
         const navLinks = document.getElementById('navLinks');
 
@@ -1228,23 +1128,56 @@
             navLinks.classList.toggle('active');
         });
 
-        // Modal Functionality
-        const infoModal = document.getElementById('infoModal');
-        const modalClose = document.querySelector('.modal-close');
+        // Login Modal
+        const loginBtn = document.getElementById('loginBtn');
+        const loginModal = document.getElementById('loginModal');
+        const modalClose = document.getElementById('modalClose');
 
-        // Add event listeners to all buttons
-        const buttons = document.querySelectorAll('a.btn');
-        buttons.forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault(); // Prevent default link behavior
-                infoModal.classList.add('active'); // Show the modal
+        loginBtn.addEventListener('click', () => {
+            loginModal.classList.add('active');
+        });
+
+        modalClose.addEventListener('click', () => {
+            loginModal.classList.remove('active');
+        });
+
+        // Scrolling Content
+        const scrollingContent = document.getElementById('scrollingContent');
+        const scrollLeftBtn = document.getElementById('scrollLeft');
+        const scrollRightBtn = document.getElementById('scrollRight');
+        const scrollIndicators = document.getElementById('scrollIndicators').children;
+        let currentIndex = 0;
+
+        scrollLeftBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateScroll();
+            }
+        });
+
+        scrollRightBtn.addEventListener('click', () => {
+            if (currentIndex < scrollIndicators.length - 1) {
+                currentIndex++;
+                updateScroll();
+            }
+        });
+
+        Array.from(scrollIndicators).forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentIndex = index;
+                updateScroll();
             });
         });
 
-        // Close modal
-        modalClose.addEventListener('click', () => {
-            infoModal.classList.remove('active');
-        });
+        function updateScroll() {
+            scrollingContent.scrollTo({
+                left: scrollingContent.clientWidth * currentIndex,
+                behavior: 'smooth'
+            });
+            Array.from(scrollIndicators).forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentIndex);
+            });
+        }
     </script>
 </body>
 </html>

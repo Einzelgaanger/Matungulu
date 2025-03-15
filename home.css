@@ -255,19 +255,12 @@ a {
 .contact-item {
   display: flex;
   align-items: center;
-  justify-content: flex-end; /* Align icons to the right */
   gap: 1rem;
 }
 
 .contact-item i {
   font-size: 1.5rem;
   color: var(--red);
-  order: 2; /* Move icon to the right */
-}
-
-.contact-item p,
-.contact-item a {
-  order: 1; /* Move text to the left */
 }
 
 .contact-form {

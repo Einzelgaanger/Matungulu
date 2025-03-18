@@ -214,21 +214,21 @@ main {
 .hero-content {
   max-width: 800px;
   margin: 0 auto;
-  padding: 2rem 1.5rem;
+  padding: 1.5rem 1rem;
   position: relative;
   z-index: 2;
   color: var(--light);
 }
 
 .hero-title {
-  font-size: 3.5rem;
-  margin-bottom: 1.5rem;
+  font-size: 1.9rem;
+  margin-bottom: 0.5rem;
   line-height: 1.1;
 }
 
 .hero-subtitle {
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
+  font-size: 0.7rem;
+  margin-bottom: 1rem;
   font-weight: 400;
   opacity: 0.9;
 }
@@ -237,7 +237,7 @@ main {
   display: flex;
   gap: 1rem;
   justify-content: center;
-  margin-top: 1.5rem;
+  margin-top: 0.7rem;
 }
 /* Hero grid layout */
 .hero-grid {

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hon. Thomas Ndaka - MP Matungulu 2027</title>
+  <link rel="icon" type="image/jpeg" href="cdf.jpeg">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="#" class="logo">
+          <img src="cdf.jpeg" alt="Matungulu CDF Logo" class="logo-img">
+          <span class="logo-text">Matungulu NG-CDF</span>
+        </a>
+        
+        <!-- Hamburger menu for mobile -->
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+          <i class="fas fa-bars"></i>
+        </button>
+        
+        <!-- Navigation links -->
+        <div class="nav-links" id="navLinks">
+          <a href="#" class="nav-link active">Home</a>
+          <a href="#contact" class="nav-link">Contact</a>
+          <a href="auth.html" class="btn btn-primary nav-btn">Student Login</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-image">
+        <img src="app.jpg" alt="Digital Bursary Management" class="responsive-image">
+      </div>
+      <div class="hero-content">
+        <h1 class="hero-title">MATUNGULU NG-CDF BURSARY MANAGEMENT SYSTEM</h1>
+        <p class="hero-subtitle">Empowering education through transparent and efficient bursary allocation</p>
+        <div class="hero-buttons">
+          <a href="auth.html" class="btn btn-primary btn-lg">
+            <i class="fas fa-pencil-alt"></i> Apply for Bursary
+          </a>
+        </div>
+        <div class="powered-by">
+          <p>Powered by Hon. Tom Ndaka, MP for Matungulu 2027</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    
+    <!-- You can add more sections here as needed -->
+  </main>
+  
+  <!-- Footer -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo">
+            <img src="cdf.jpeg" alt="Matungulu CDF Logo" class="footer-logo-img">
+            <span class="footer-logo-text">Matungulu NG-CDF</span>
+          </div>
+          <p class="footer-description">Empowering the youth through education and community development.</p>
+          <div class="social-links">
+            <a href="https://facebook.com" class="social-link" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://wa.me/254720426513" class="social-link" aria-label="WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li class="footer-link-item">
+              <a href="#home" class="footer-link">Home</a>
+            </li>
+            <li class="footer-link-item">
+              <a href="#contact" class="footer-link">Contact</a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h3 class="footer-title">Contact Us</h3>
+          <ul class="contact-list">
+            <li class="contact-item">
+              <i class="fas fa-map-marker-alt contact-icon"></i>
+              <span>Matungulu NG-CDF Office, Matungulu, Kenya</span>
+            </li>
+            <li class="contact-item">
+              <a href="tel:+254720426513" class="contact-link">
+                <i class="fas fa-phone-alt contact-icon"></i>
+                <span>Call Me</span>
+              </a>
+            </li>
+            <li class="contact-item">
+              <a href="mailto:hontomndaka@gmail.com" class="contact-link">
+                <i class="fas fa-envelope contact-icon"></i>
+                <span>Email Me</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        &copy; 2025 Matungulu NG-CDF. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript for mobile menu toggle -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileToggle = document.getElementById('mobileToggle');
+      const navLinks = document.getElementById('navLinks');
+      
+      mobileToggle.addEventListener('click', function() {
+        navLinks.classList.toggle('active');
+        mobileToggle.classList.toggle('active');
+        
+        // Change icon based on state
+        const icon = mobileToggle.querySelector('i');
+        if (icon.classList.contains('fa-bars')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+      
+      // Close menu when clicking on a link (for mobile)
+      const navLinksElements = document.querySelectorAll('.nav-link, .nav-btn');
+      navLinksElements.forEach(link => {
+        link.addEventListener('click', function() {
+          if (window.innerWidth <= 768) {
+            navLinks.classList.remove('active');
+            mobileToggle.classList.remove('active');
+            const icon = mobileToggle.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
